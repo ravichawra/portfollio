@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #c8ff00;
+  color: #0d0d0d;
+}
+
+/* ── Dot-matrix background (global) ─────────────────────── */
+body {
+  background-color: #0d0d0d;
+  background-image: radial-gradient(#262626 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Brutalist hover card effect ────────────────────────── */
+.brutalist-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.brutalist-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0px 0px #c8ff00;
+}
+
+/* ── Terminal blink cursor ──────────────────────────────── */
+.terminal-cursor::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ── Node line SVG animation ────────────────────────────── */
+.node-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash-flow 5s linear infinite;
+}
+@keyframes dash-flow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ── Section connector line (Process) ──────────────────── */
+.connector-line {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #262626;
+  z-index: 0;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c8ff00;
+}
