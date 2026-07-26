@@ -60,15 +60,23 @@ function NewsletterCard() {
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "#c0f500" }}>$</span>
               <input
                 type="email"
+                maxLength={100}
+                autoComplete="email"
+                spellCheck={false}
                 placeholder="enter_email_address"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value.replace(/[<>'"]/g, "").slice(0, 100))}
                 className="bg-transparent border-none outline-none flex-1"
                 style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "#e3e2e2" }}
               />
             </div>
             <button
-              onClick={() => email && setDone(true)}
+              onClick={() => {
+                const clean = email.trim().toLowerCase();
+                if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(clean)) {
+                  setDone(true);
+                }
+              }}
               className="w-full py-3 font-bold uppercase transition-all duration-200 hover:invert"
               style={{
                 fontFamily: "var(--font-mono)",

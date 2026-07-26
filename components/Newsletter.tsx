@@ -6,10 +6,27 @@ import { motion } from "framer-motion";
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleEmailChange = (val: string) => {
+    // Sanitize input: strip malicious HTML/script characters and limit length
+    const sanitized = val.replace(/[<>'"]/g, "").slice(0, 100);
+    setEmail(sanitized);
+    if (error) setError("");
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const cleanEmail = email.trim().toLowerCase();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    if (!emailRegex.test(cleanEmail)) {
+      setError("PLEASE ENTER A VALID EMAIL ADDRESS");
+      return;
+    }
+
     setSubmitted(true);
+    setError("");
   };
 
   return (
@@ -65,44 +82,57 @@ export default function Newsletter() {
               ✓ YOU&apos;RE IN. CHECK YOUR INBOX SOON.
             </motion.div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col md:flex-row gap-3"
-            >
-              <input
-                type="email"
-                required
-                placeholder="ENTER YOUR EMAIL"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-grow bg-transparent border px-6 py-4 outline-none transition-colors duration-200"
-                style={{
-                  borderColor: "#434933",
-                  color: "#e3e2e2",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
-                  letterSpacing: "0.05em",
-                }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = "#c0f500"; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = "#434933"; }}
-              />
-              <motion.button
-                type="submit"
-                className="px-8 py-4 font-bold whitespace-nowrap"
-                style={{
-                  backgroundColor: "#c0f500",
-                  color: "#161f00",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                }}
-                whileHover={{ scale: 1.03, x: -2, y: -2, boxShadow: "3px 3px 0 0 #e3e2e2" }}
-                whileTap={{ scale: 0.97 }}
+            <>
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col md:flex-row gap-3"
               >
-                GET THE EMAILS
-              </motion.button>
-            </form>
+                <input
+                  type="email"
+                  required
+                  maxLength={100}
+                  autoComplete="email"
+                  spellCheck={false}
+                  placeholder="ENTER YOUR EMAIL"
+                  value={email}
+                  onChange={(e) => handleEmailChange(e.target.value)}
+                  className="flex-grow bg-transparent border px-6 py-4 outline-none transition-colors duration-200"
+                  style={{
+                    borderColor: error ? "#ff4444" : "#434933",
+                    color: "#e3e2e2",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "13px",
+                    letterSpacing: "0.05em",
+                  }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = "#c0f500"; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = error ? "#ff4444" : "#434933"; }}
+                />
+                <motion.button
+                  type="submit"
+                  className="px-8 py-4 font-bold whitespace-nowrap"
+                  style={{
+                    backgroundColor: "#c0f500",
+                    color: "#161f00",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "13px",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                  }}
+                  whileHover={{ scale: 1.03, x: -2, y: -2, boxShadow: "3px 3px 0 0 #e3e2e2" }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  GET THE EMAILS
+                </motion.button>
+              </form>
+              {error && (
+                <div
+                  className="mt-2 text-red-400 font-mono text-micro uppercase tracking-widest"
+                  style={{ fontSize: "11px" }}
+                >
+                  ⚠ {error}
+                </div>
+              )}
+            </>
           )}
 
           <div
