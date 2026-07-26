@@ -1,75 +1,170 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* ── Base resets ─────────────────────────────────────────── */
-*,
-*::before,
-*::after {
+/* ── Tailwind v4 CSS-first design tokens ─────────────────── */
+@theme {
+  /* Fonts */
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "Courier New", monospace;
+
+  /* Colors */
+  --color-bg-base: #0D0D0D;
+  --color-bg-surface: #1A1A1A;
+  --color-bg-elevated: #292a2a;
+  --color-border-subtle: #262626;
+  --color-border-muted: #434933;
+  --color-border-active: #8e9479;
+  --color-text-primary: #e3e2e2;
+  --color-text-muted: #c4caac;
+  --color-text-faint: #8e9479;
+
+  /* Accent — Electric Lime */
+  --color-lime: #C8FF00;
+  --color-lime-dim: #a8d700;
+  --color-lime-bright: #c0f500;
+
+  /* Semantic aliases */
+  --color-on-primary: #0D0D0D;
+  --color-surface: #0D0D0D;
+  --color-surface-container: #1A1A1A;
+  --color-on-surface: #e3e2e2;
+  --color-on-surface-variant: #c4caac;
+  --color-outline-variant: #262626;
+  --color-primary-fixed: #C8FF00;
+  --color-on-primary-fixed: #161f00;
+
+  /* Border radius — sharp / brutalist */
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-gutter: 24px;
+  --spacing-section: 80px;
+  --spacing-section-sm: 48px;
+
+  /* Max-width */
+  --container-max: 1200px;
+
+  /* Font sizes (clamp-based for hero & responsive scaling) */
+  --text-display: clamp(2.15rem, 4.5vw, 3.25rem);
+  --text-headline-lg: clamp(1.85rem, 3.8vw, 2.75rem);
+  --text-headline-md: clamp(1.5rem, 2.8vw, 2rem);
+  --text-body-lg: 1.25rem;
+  --text-body-md: 1.125rem;
+  --text-label: 0.875rem;
+  --text-micro: 0.75rem;
+
+  /* Animations */
+  --animate-pulse-dot: pulse_dot 2s ease-in-out infinite;
+  --animate-blink: blink 1s step-end infinite;
+  --animate-dash-flow: dash-flow 5s linear infinite;
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes pulse_dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Global base ─────────────────────────────────────────── */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 ::selection {
-  background-color: #c8ff00;
-  color: #0d0d0d;
+  background-color: #c0f500;
+  color: #161f00;
 }
 
-/* ── Dot-matrix background (global) ─────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #0d0d0d;
-  background-image: radial-gradient(#262626 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-color: #0d0e0f;
+  color: #e3e2e2;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* ── Brutalist hover card effect ────────────────────────── */
+/* Typography scale guarantee (headings always larger than 18px body text) */
+h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.65rem, 4.2vw, 2.5rem);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.25;
+}
+
+/* Dot-matrix is handled by a fixed <div> with JS parallax */
+#dot-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background-image: radial-gradient(#292a2a 1px, transparent 1px);
+  background-size: 32px 32px;
+  transition: transform 0.1s ease-out;
+}
+
+/* ── Component utilities ─────────────────────────────────── */
 .brutalist-hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .brutalist-hover:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 3px 3px 0px 0px #c8ff00;
+  box-shadow: 3px 3px 0px 0px #c0f500;
 }
 
-/* ── Terminal blink cursor ──────────────────────────────── */
 .terminal-cursor::after {
-  content: "_";
+  content: "█";
   animation: blink 1s step-end infinite;
-}
-@keyframes blink {
-  50% { opacity: 0; }
+  color: #c0f500;
 }
 
-/* ── Node line SVG animation ────────────────────────────── */
 .node-line {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   animation: dash-flow 5s linear infinite;
 }
-@keyframes dash-flow {
-  to { stroke-dashoffset: 0; }
+
+/* ── Max-width container ─────────────────────────────────── */
+.max-w-container {
+  max-width: var(--container-max);
 }
 
-/* ── Section connector line (Process) ──────────────────── */
-.connector-line {
-  position: absolute;
-  top: 1rem;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: #262626;
-  z-index: 0;
-}
-
-/* ── Scrollbar ──────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: #0d0d0d;
-}
-::-webkit-scrollbar-thumb {
-  background: #262626;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #c8ff00;
-}
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: #262626; }
+::-webkit-scrollbar-thumb:hover { background: #c8ff00; }
