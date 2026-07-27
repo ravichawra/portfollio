@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import DotGridParallax from "@/components/DotGridParallax";
 import "./globals.css";
 
@@ -161,6 +162,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${jetbrains.variable}`}>
         <DotGridParallax />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
