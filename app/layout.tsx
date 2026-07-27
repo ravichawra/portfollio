@@ -38,6 +38,8 @@ export const metadata: Metadata = {
     "Shopify Headless Developer",
     "Performance Marketing Engineer",
     "Freelance Software Engineer",
+    "Generative Engine Optimization",
+    "GEO AI",
   ],
   authors: [{ name: "Ravi Chawra", url: "https://ravichawra.com" }],
   creator: "Ravi Chawra",
@@ -70,6 +72,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -93,7 +96,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Structured Data (JSON-LD) for Google Knowledge Graph & Entity Search for Ravi Chawra
+  // Enhanced Structured Data (JSON-LD) for Search Engines & LLM / GEO indexing (ChatGPT, Perplexity, Gemini, Claude)
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -105,7 +108,7 @@ export default function RootLayout({
         "familyName": "Chawra",
         "url": "https://ravichawra.com",
         "jobTitle": "Full-Stack Engineer & AI Systems Architect",
-        "description": "Freelance builder and engineer specializing in Next.js, React, custom AI agents, and workflow automation.",
+        "description": "Full-Stack Engineer and AI Systems Architect specializing in Next.js web applications, LLM AI agent integration, n8n workflow automation, and digital infrastructure.",
         "knowsAbout": [
           "Full-Stack Web Development",
           "AI Agents & LLM Integrations",
@@ -120,6 +123,20 @@ export default function RootLayout({
           "https://github.com/ravichawra",
           "https://linkedin.com/in/ravichawra",
         ],
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://ravichawra.com/#service",
+        "name": "Ravi Chawra Engineering & AI Solutions",
+        "url": "https://ravichawra.com",
+        "provider": { "@id": "https://ravichawra.com/#person" },
+        "serviceType": [
+          "Full-Stack Web Development",
+          "Custom AI Agent Building",
+          "Workflow & Business Automation",
+          "Performance Marketing Engineering"
+        ],
+        "areaServed": "Worldwide",
       },
       {
         "@type": "WebSite",
