@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // Alias /robot.txt -> /robots.txt so both URL variations work
+  async rewrites() {
+    return [
+      {
+        source: "/robot.txt",
+        destination: "/robots.txt",
+      },
+    ];
+  },
+
   logging: {
     fetches: { fullUrl: false },
   },
