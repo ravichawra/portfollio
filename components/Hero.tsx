@@ -25,6 +25,7 @@ function WorkflowVisual() {
         loop
         muted
         playsInline
+        preload="metadata"
         className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-100 opacity-90"
       />
 
@@ -49,18 +50,19 @@ function WorkflowVisual() {
 }
 
 const containerVariants: Variants = {
-  hidden: {},
+  hidden: { opacity: 1 },
   visible: {
-    transition: { staggerChildren: 0.12 },
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.0, 0.0, 0.2, 1] },
+    transition: { duration: 0.35, ease: [0.0, 0.0, 0.2, 1] },
   },
 };
 
@@ -68,19 +70,23 @@ const TYPEWRITER_TEXT =
   "Right now you're probably paying one person to run ads, another to fix your site, and hoping someone eventually automates the manual stuff. I do all three. Same person, same context, no handoffs.";
 
 export default function Hero() {
-  const [displayed, setDisplayed] = useState("");
+  // Start with full text for instant FCP (First Contentful Paint)
+  const [displayed, setDisplayed] = useState(TYPEWRITER_TEXT);
 
   useEffect(() => {
+    // Subtle typing effect on client hydration without blocking initial render
     let i = 0;
-    const timer = setTimeout(() => {
-      const interval = setInterval(() => {
-        i++;
+    setDisplayed("");
+    const interval = setInterval(() => {
+      i += 2;
+      if (i >= TYPEWRITER_TEXT.length) {
+        setDisplayed(TYPEWRITER_TEXT);
+        clearInterval(interval);
+      } else {
         setDisplayed(TYPEWRITER_TEXT.slice(0, i));
-        if (i >= TYPEWRITER_TEXT.length) clearInterval(interval);
-      }, 15);
-      return () => clearInterval(interval);
-    }, 400);
-    return () => clearTimeout(timer);
+      }
+    }, 12);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -94,7 +100,7 @@ export default function Hero() {
         <motion.div
           className="flex flex-col gap-6"
           variants={containerVariants}
-          initial="hidden"
+          initial={false}
           animate="visible"
         >
           <motion.div
@@ -168,9 +174,9 @@ export default function Hero() {
 
         {/* Right — workflow visual */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={false}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.0, 0.0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: [0.0, 0.0, 0.2, 1] }}
           className="w-full max-w-2xl lg:max-w-none mx-auto lg:mx-0 mt-8 lg:mt-0"
         >
           <WorkflowVisual />
