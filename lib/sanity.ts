@@ -16,7 +16,7 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: process.env.NODE_ENV === "production",
-  stega: { studioUrl: "/studio" },
+  stega: false,
 });
 
 // Image URL builder
