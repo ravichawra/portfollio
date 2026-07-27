@@ -172,11 +172,7 @@ export default function BlogListing({ initialPosts }: { initialPosts: Post[] }) 
             <p
               style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "#8e9479" }}
             >
-              No posts yet. Add your first post via{" "}
-              <Link href="/studio" style={{ color: "#c0f500", textDecoration: "underline" }}>
-                /studio
-              </Link>
-              {" "}*/
+              /* No published entries found under this category. */
             </p>
           </div>
         ) : (

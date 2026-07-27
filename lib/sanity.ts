@@ -1,12 +1,12 @@
 import { createClient } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
+import createImageUrlBuilder from "@sanity/image-url";
 
-const envProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
-// Validate that projectId follows Sanity's pattern [a-z0-9-]+ or fallback to a safe valid format placeholder
+const rawProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+// Fallback to real project ID 'jnj56ajy' if env variable is missing or placeholder
 export const projectId =
-  envProjectId && /^[a-z0-9-]+$/i.test(envProjectId)
-    ? envProjectId
-    : "demo-project-id";
+  rawProjectId && /^[a-z0-9-]+$/i.test(rawProjectId) && rawProjectId !== "YOUR_PROJECT_ID_HERE"
+    ? rawProjectId
+    : "jnj56ajy";
 
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "production";
 export const apiVersion = "2024-01-01";
@@ -20,7 +20,7 @@ export const client = createClient({
 });
 
 // Image URL builder
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function urlFor(source: any) {
   return builder.image(source);
@@ -30,9 +30,6 @@ export function urlFor(source: any) {
 
 // All posts for listing page
 export async function getAllPosts(category?: string) {
-  if (!envProjectId || envProjectId === "YOUR_PROJECT_ID_HERE") {
-    return [];
-  }
   try {
     const filter = category && category !== "ALL" ? `&& category == $category` : "";
     const posts = await client.fetch(
@@ -51,16 +48,13 @@ export async function getAllPosts(category?: string) {
     );
     return posts || [];
   } catch (err) {
-    console.warn("Sanity fetch failed:", err);
+    console.warn("Sanity fetch posts failed:", err);
     return [];
   }
 }
 
 // Single post by slug
 export async function getPostBySlug(slug: string) {
-  if (!envProjectId || envProjectId === "YOUR_PROJECT_ID_HERE") {
-    return null;
-  }
   try {
     const post = await client.fetch(
       `*[_type == "post" && slug.current == $slug][0] {
@@ -79,23 +73,20 @@ export async function getPostBySlug(slug: string) {
     );
     return post || null;
   } catch (err) {
-    console.warn("Sanity fetch post failed:", err);
+    console.warn("Sanity fetch post by slug failed:", err);
     return null;
   }
 }
 
 // All slugs for static generation
 export async function getAllPostSlugs() {
-  if (!envProjectId || envProjectId === "YOUR_PROJECT_ID_HERE") {
-    return [];
-  }
   try {
     const slugs = await client.fetch(
       `*[_type == "post" && defined(slug.current)] { "slug": slug.current }`
     );
     return slugs || [];
   } catch (err) {
-    console.warn("Sanity fetch slugs failed:", err);
+    console.warn("Sanity fetch post slugs failed:", err);
     return [];
   }
 }
@@ -103,9 +94,6 @@ export async function getAllPostSlugs() {
 // ── Case Studies GROQ Queries ───────────────────────────────────────
 
 export async function getAllCaseStudies() {
-  if (!envProjectId || envProjectId === "YOUR_PROJECT_ID_HERE") {
-    return [];
-  }
   try {
     const studies = await client.fetch(
       `*[_type == "caseStudy"] | order(publishedAt desc) {
@@ -130,9 +118,6 @@ export async function getAllCaseStudies() {
 }
 
 export async function getCaseStudyBySlug(slug: string) {
-  if (!envProjectId || envProjectId === "YOUR_PROJECT_ID_HERE") {
-    return null;
-  }
   try {
     const study = await client.fetch(
       `*[_type == "caseStudy" && slug.current == $slug][0] {
@@ -153,15 +138,12 @@ export async function getCaseStudyBySlug(slug: string) {
     );
     return study || null;
   } catch (err) {
-    console.warn("Sanity fetch case study failed:", err);
+    console.warn("Sanity fetch case study by slug failed:", err);
     return null;
   }
 }
 
 export async function getAllCaseStudySlugs() {
-  if (!envProjectId || envProjectId === "YOUR_PROJECT_ID_HERE") {
-    return [];
-  }
   try {
     const slugs = await client.fetch(
       `*[_type == "caseStudy" && defined(slug.current)] { "slug": slug.current }`
