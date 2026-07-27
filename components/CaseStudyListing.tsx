@@ -12,7 +12,7 @@ export interface CaseStudyItem {
   client?: string;
   category: string;
   excerpt: string;
-  coverImage?: any;
+  coverImage?: string | Record<string, unknown>;
   metrics?: { value: string; label: string }[];
   testimonialQuote?: string;
   testimonialAuthor?: string;
@@ -42,7 +42,7 @@ const FALLBACK_CASE_STUDIES: CaseStudyItem[] = [
 ];
 
 interface CaseStudyListingProps {
-  initialStudies?: any[];
+  initialStudies?: CaseStudyItem[];
 }
 
 export default function CaseStudyListing({ initialStudies = [] }: CaseStudyListingProps) {
@@ -51,7 +51,11 @@ export default function CaseStudyListing({ initialStudies = [] }: CaseStudyListi
   // Merge Sanity studies with fallback
   const sanityItems: CaseStudyItem[] = (initialStudies || []).map((item) => ({
     ...item,
-    coverImage: item.coverImage ? urlFor(item.coverImage).url() : undefined,
+    coverImage: typeof item.coverImage === "string"
+      ? item.coverImage
+      : item.coverImage
+      ? urlFor(item.coverImage).url()
+      : undefined,
   }));
 
   const allStudies = [...FALLBACK_CASE_STUDIES, ...sanityItems];
