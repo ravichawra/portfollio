@@ -59,7 +59,7 @@ export default function CTA() {
           </motion.a>
 
           <motion.a
-            href="https://wa.me/message/FGO7U6WF4F3FJ1"
+            href="https://wa.me/917014383693"
             className="border-2 border-bg-base text-bg-base font-mono text-label uppercase tracking-widest px-10 py-4 font-bold hover:bg-bg-base hover:text-lime transition-all duration-200 inline-flex items-center justify-center gap-2"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
