@@ -26,26 +26,25 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b" style={{ borderColor: "#434933" }}>
+    <div className="border-b border-border-subtle">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="flex justify-between items-center w-full py-6 text-left group"
+        className="flex justify-between items-center w-full py-4 text-left group gap-4"
         aria-expanded={open}
       >
         <h3
-          className="text-xl font-semibold transition-colors duration-200 pr-4"
-          style={{
-            fontFamily: "var(--font-sans)",
-            color: open ? "#c0f500" : "#e3e2e2",
-          }}
+          className={`text-sm md:text-base font-medium transition-colors duration-200 ${
+            open ? "text-lime font-semibold" : "text-text-primary group-hover:text-lime"
+          }`}
+          style={{ fontFamily: "var(--font-sans)" }}
         >
           {q}
         </h3>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.25 }}
-          className="shrink-0 text-2xl font-light"
-          style={{ color: "#c0f500", lineHeight: 1 }}
+          className="shrink-0 text-lg font-mono text-lime font-bold"
+          style={{ lineHeight: 1 }}
         >
           +
         </motion.span>
@@ -58,13 +57,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p
-              className="pb-6 leading-relaxed max-w-2xl"
-              style={{ fontFamily: "var(--font-sans)", color: "#c4caac", fontSize: "16px" }}
-            >
+            <p className="pb-4 text-xs md:text-sm text-text-muted leading-relaxed max-w-2xl">
               {a}
             </p>
           </motion.div>
@@ -78,34 +74,30 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="border-b"
-      style={{ borderColor: "#434933" }}
+      className="border-b border-border-subtle bg-bg-base py-16"
       aria-labelledby="faq-heading"
     >
-      <div className="max-w-[1200px] mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="max-w-container mx-auto px-gutter">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left label + heading */}
-          <div className="lg:col-span-1">
-            <div
-              className="uppercase tracking-widest text-sm mb-3"
-              style={{ fontFamily: "var(--font-mono)", color: "#c0f500", fontSize: "13px" }}
-            >
-             QUESTIONS
-            </div>
+          <div className="lg:col-span-4">
+            <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-2 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
+              QUESTIONS & ANSWERS
+            </span>
             <h2
               id="faq-heading"
-              className="font-bold leading-tight mb-4"
-              style={{ fontFamily: "var(--font-sans)", fontSize: "clamp(2rem, 3vw, 3rem)", color: "#e3e2e2", letterSpacing: "-0.02em" }}
+              className="text-lg md:text-xl font-sans font-bold text-text-primary tracking-tight leading-snug mb-2"
             >
               Questions people usually ask before we start
             </h2>
-            <p style={{ fontFamily: "var(--font-sans)", color: "#c4caac", fontSize: "16px" }}>
+            <p className="text-xs md:text-sm text-text-muted">
               Here&apos;s what most people want to know upfront.
             </p>
           </div>
 
           {/* Right accordion */}
-          <div className="lg:col-span-2 flex flex-col">
+          <div className="lg:col-span-8 flex flex-col border-t border-border-subtle lg:border-t-0">
             {FAQS.map((faq) => (
               <FAQItem key={faq.q} q={faq.q} a={faq.a} />
             ))}
