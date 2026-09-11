@@ -29,21 +29,21 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-border-subtle">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="flex justify-between items-center w-full py-3.5 text-left group gap-4"
+        className="flex justify-between items-center w-full py-5 text-left group gap-4"
         aria-expanded={open}
       >
         <h3
-          className={`text-[13px] sm:text-[14px] transition-colors duration-200 ${
-            open ? "text-lime font-semibold" : "text-text-primary group-hover:text-lime font-medium"
+          className={`text-[18px] sm:text-[24px] font-semibold transition-colors duration-200 ${
+            open ? "text-lime" : "text-text-primary group-hover:text-lime"
           }`}
-          style={{ fontFamily: "var(--font-sans)", lineHeight: "1.4" }}
+          style={{ fontFamily: "var(--font-sans)", lineHeight: "1.35" }}
         >
           {q}
         </h3>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.25 }}
-          className="shrink-0 text-base font-mono text-lime font-bold"
+          className="shrink-0 text-2xl font-mono text-lime font-bold"
           style={{ lineHeight: 1 }}
         >
           +
@@ -61,7 +61,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             className="overflow-hidden"
           >
             <p
-              className="pb-4 text-[12px] sm:text-[13px] text-text-muted leading-relaxed max-w-2xl"
+              className="pb-6 text-[16px] sm:text-[22px] text-text-muted leading-relaxed max-w-3xl"
               style={{ fontFamily: "var(--font-sans)" }}
             >
               {a}
@@ -77,24 +77,24 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="border-b border-border-subtle bg-bg-base py-14"
+      className="border-b border-border-subtle bg-bg-base py-20"
       aria-labelledby="faq-heading"
     >
       <div className="max-w-container mx-auto px-gutter">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left label + heading */}
           <div className="lg:col-span-4">
-            <span className="font-mono text-[11px] text-lime uppercase tracking-widest block mb-1.5 flex items-center gap-2">
+            <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-2 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
               QUESTIONS & ANSWERS
             </span>
             <h2
               id="faq-heading"
-              className="text-base sm:text-lg font-sans font-bold text-text-primary tracking-tight leading-snug mb-2"
+              className="text-[24px] sm:text-[32px] font-sans font-bold text-text-primary tracking-tight leading-tight mb-3"
             >
               Questions people usually ask before we start
             </h2>
-            <p className="text-[12px] text-text-muted">
+            <p className="text-body-md text-text-muted">
               Here&apos;s what most people want to know upfront.
             </p>
           </div>
