@@ -134,8 +134,8 @@ export default function WhyMe() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Photo 1 Studio Portrait inside brutalist terminal card */}
           <div className="lg:col-span-5 flex flex-col">
-            <SpotlightCard className="p-6 h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
-              <div className="relative aspect-[4/5] w-full overflow-hidden border border-border-subtle mb-6 group">
+            <SpotlightCard className="p-6 rounded-3xl h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
+              <div className="relative aspect-[4/5] w-full overflow-hidden border border-border-subtle rounded-2xl mb-6 group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/ravi-portrait.jpg"
@@ -150,7 +150,7 @@ export default function WhyMe() {
                 <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-lime pointer-events-none" />
                 <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none" />
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-micro bg-bg-base/90 px-3 py-1.5 border border-border-subtle backdrop-blur-md">
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-micro bg-bg-base/90 px-3 py-1.5 border border-border-subtle backdrop-blur-md rounded-xl">
                   <span className="text-lime font-bold">● DIRECT LINE ACTIVE</span>
                   <span className="text-text-faint">NO MIDDLEMEN</span>
                 </div>
@@ -181,7 +181,7 @@ export default function WhyMe() {
             >
               {GUARANTEES.map((item, idx) => (
                 <motion.div key={item.id} variants={cardVariants} className="h-full">
-                  <SpotlightCard className="p-8 h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
+                  <SpotlightCard className="p-8 rounded-3xl h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
                     <div>
                       <div className="flex items-center justify-between mb-3">
                         <span className="font-mono text-micro text-lime font-bold tracking-widest">

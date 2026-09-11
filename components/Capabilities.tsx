@@ -87,7 +87,7 @@ export default function Capabilities() {
 
         {/* Cards grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border-subtle border-y border-border-subtle"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -100,7 +100,7 @@ export default function Capabilities() {
               className="h-full"
             >
               <SpotlightCard
-                className="p-8 lg:p-10 h-full flex flex-col justify-between group hover:border-lime/30 transition-colors"
+                className="p-8 lg:p-10 rounded-3xl h-full flex flex-col justify-between group border border-border-subtle hover:border-lime/40 transition-colors bg-bg-surface/80 backdrop-blur-md shadow-xl"
                 enableTilt={true}
               >
                 <div>
@@ -109,7 +109,7 @@ export default function Capabilities() {
                     <span className="font-mono text-label text-lime tracking-widest font-bold">
                       {cap.index}
                     </span>
-                    <span className="font-mono text-[10px] text-lime/80 uppercase tracking-widest px-2 py-0.5 border border-lime/30 bg-lime/5">
+                    <span className="font-mono text-[10px] text-lime uppercase tracking-widest px-3 py-1 rounded-full border border-lime/30 bg-lime/10 font-bold">
                       {cap.audience}
                     </span>
                   </div>

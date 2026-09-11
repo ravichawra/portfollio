@@ -15,11 +15,11 @@ export default function CTA() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lime/5 blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-container mx-auto px-gutter">
-        <SpotlightCard className="p-8 lg:p-14 border border-border-subtle hover:border-lime/40 transition-colors shadow-2xl">
+        <SpotlightCard className="p-8 lg:p-14 rounded-3xl border border-border-subtle hover:border-lime/40 transition-colors shadow-2xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Column: Photo 2 - Cinematic Dark Study */}
             <div className="lg:col-span-5 flex flex-col">
-              <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden border border-border-subtle group">
+              <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden border border-border-subtle rounded-2xl group">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/ravi-workspace-cinematic.jpg"

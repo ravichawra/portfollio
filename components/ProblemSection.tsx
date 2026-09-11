@@ -86,7 +86,7 @@ export default function ProblemSection() {
           {PROBLEMS.map((card) => (
             <motion.div key={card.number} variants={cardVariants} className="h-full">
               <SpotlightCard
-                className={`p-8 lg:p-10 h-full flex flex-col justify-between border transition-all duration-300 ${
+                className={`p-8 lg:p-10 rounded-3xl h-full flex flex-col justify-between border transition-all duration-300 ${
                   card.highlight
                     ? "border-lime/60 bg-bg-surface/90 shadow-[0_0_25px_rgba(200,255,0,0.08)]"
                     : "border-border-subtle hover:border-lime/30"
@@ -99,10 +99,10 @@ export default function ProblemSection() {
                       {card.number}
                     </span>
                     <span
-                      className={`font-mono text-[10px] uppercase tracking-widest px-2 py-0.5 border ${
+                      className={`font-mono text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border font-bold ${
                         card.highlight
                           ? "border-lime text-lime bg-lime/10"
-                          : "border-border-subtle text-text-faint"
+                          : "border-border-subtle text-text-faint bg-bg-base"
                       }`}
                     >
                       {card.tag}

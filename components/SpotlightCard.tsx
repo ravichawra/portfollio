@@ -72,7 +72,7 @@ export default function SpotlightCard({
     >
       {/* Radial Spotlight Overlay */}
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 rounded-[inherit]"
         style={{
           background: isHovered
             ? `radial-gradient(450px circle at ${mousePos.x}px ${mousePos.y}px, ${spotlightColor}, transparent 70%)`
@@ -82,7 +82,7 @@ export default function SpotlightCard({
 
       {/* Subtle border glow spotlight */}
       <div
-        className="pointer-events-none absolute -inset-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+        className="pointer-events-none absolute -inset-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 rounded-[inherit]"
         style={{
           background: isHovered
             ? `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(200, 255, 0, 0.4), transparent 60%)`

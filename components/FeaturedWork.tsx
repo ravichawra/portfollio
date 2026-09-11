@@ -32,7 +32,7 @@ export default function FeaturedWork() {
         <div className="flex flex-col gap-10">
           {/* Project 1: Vyonnastore.in */}
           <SpotlightCard
-            className="shadow-2xl border border-border-subtle hover:border-lime/40 transition-colors overflow-hidden"
+            className="shadow-2xl border border-border-subtle hover:border-lime/40 transition-colors overflow-hidden rounded-3xl"
             enableTilt={false}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
@@ -110,7 +110,7 @@ export default function FeaturedWork() {
 
           {/* Project 2: M.R.K. Public School */}
           <SpotlightCard
-            className="shadow-2xl border border-border-subtle hover:border-lime/40 transition-colors overflow-hidden"
+            className="shadow-2xl border border-border-subtle hover:border-lime/40 transition-colors overflow-hidden rounded-3xl"
             enableTilt={false}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
