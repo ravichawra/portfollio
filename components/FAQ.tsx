@@ -29,21 +29,21 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     <div className="border-b border-border-subtle">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="flex justify-between items-center w-full py-4 text-left group gap-4"
+        className="flex justify-between items-center w-full py-3.5 text-left group gap-4"
         aria-expanded={open}
       >
         <h3
-          className={`text-sm md:text-base font-medium transition-colors duration-200 ${
-            open ? "text-lime font-semibold" : "text-text-primary group-hover:text-lime"
+          className={`text-[13px] sm:text-[14px] transition-colors duration-200 ${
+            open ? "text-lime font-semibold" : "text-text-primary group-hover:text-lime font-medium"
           }`}
-          style={{ fontFamily: "var(--font-sans)" }}
+          style={{ fontFamily: "var(--font-sans)", lineHeight: "1.4" }}
         >
           {q}
         </h3>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.25 }}
-          className="shrink-0 text-lg font-mono text-lime font-bold"
+          className="shrink-0 text-base font-mono text-lime font-bold"
           style={{ lineHeight: 1 }}
         >
           +
@@ -57,10 +57,13 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-4 text-xs md:text-sm text-text-muted leading-relaxed max-w-2xl">
+            <p
+              className="pb-4 text-[12px] sm:text-[13px] text-text-muted leading-relaxed max-w-2xl"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
               {a}
             </p>
           </motion.div>
@@ -74,24 +77,24 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="border-b border-border-subtle bg-bg-base py-16"
+      className="border-b border-border-subtle bg-bg-base py-14"
       aria-labelledby="faq-heading"
     >
       <div className="max-w-container mx-auto px-gutter">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
           {/* Left label + heading */}
           <div className="lg:col-span-4">
-            <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-2 flex items-center gap-2">
+            <span className="font-mono text-[11px] text-lime uppercase tracking-widest block mb-1.5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
               QUESTIONS & ANSWERS
             </span>
             <h2
               id="faq-heading"
-              className="text-lg md:text-xl font-sans font-bold text-text-primary tracking-tight leading-snug mb-2"
+              className="text-base sm:text-lg font-sans font-bold text-text-primary tracking-tight leading-snug mb-2"
             >
               Questions people usually ask before we start
             </h2>
-            <p className="text-xs md:text-sm text-text-muted">
+            <p className="text-[12px] text-text-muted">
               Here&apos;s what most people want to know upfront.
             </p>
           </div>
