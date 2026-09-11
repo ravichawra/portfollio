@@ -33,7 +33,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         aria-expanded={open}
       >
         <h3
-          className={`text-[18px] sm:text-[20px] font-semibold transition-colors duration-200 ${
+          className={`text-[16px] sm:text-[18px] font-semibold transition-colors duration-200 ${
             open ? "text-lime" : "text-text-primary group-hover:text-lime"
           }`}
           style={{ fontFamily: "var(--font-sans)", lineHeight: "1.35" }}
@@ -90,7 +90,7 @@ export default function FAQ() {
             </span>
             <h2
               id="faq-heading"
-              className="text-[24px] sm:text-[24px] font-sans font-bold text-text-primary tracking-tight leading-tight mb-3"
+              className="text-[20px] sm:text-[22px] font-sans font-bold text-text-primary tracking-tight leading-tight mb-3"
             >
               Questions people usually ask before we start
             </h2>

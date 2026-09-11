@@ -1,25 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, type Variants } from "framer-motion";
+import { useRef } from "react";
 import SpotlightCard from "@/components/SpotlightCard";
 
 interface Step {
   number: string;
+  stepLabel: string;
   stage: string;
-  timeline: string;
   title: string;
   subtitle: string;
   description: string;
   deliverables: string[];
-  progress: number;
+  icon: string;
 }
 
 const STEPS: Step[] = [
   {
     number: "01",
+    stepLabel: "Step 1",
     stage: "STAGE 01",
-    timeline: "1 - 2 DAYS",
     title: "Audit & Diagnostic",
     subtitle: "Locating revenue leaks & manual waste",
     description:
@@ -29,12 +29,12 @@ const STEPS: Step[] = [
       "Meta Pixel & CAPI Attribution Check",
       "Manual Workflow Bottleneck Map",
     ],
-    progress: 25,
+    icon: "🔍",
   },
   {
     number: "02",
+    stepLabel: "Step 2",
     stage: "STAGE 02",
-    timeline: "3 - 5 DAYS",
     title: "Blueprint & Architecture",
     subtitle: "Clear technical roadmap, zero surprises",
     description:
@@ -44,12 +44,12 @@ const STEPS: Step[] = [
       "Implementation Timeline",
       "Fixed Upfront Investment",
     ],
-    progress: 50,
+    icon: "📐",
   },
   {
     number: "03",
+    stepLabel: "Step 3",
     stage: "STAGE 03",
-    timeline: "WEEK 2",
     title: "Engineering & Execution",
     subtitle: "Direct coding, tracking & n8n wiring",
     description:
@@ -59,12 +59,12 @@ const STEPS: Step[] = [
       "n8n Lead & WhatsApp Workflows",
       "Continuous Live Previews",
     ],
-    progress: 75,
+    icon: "⚡",
   },
   {
     number: "04",
+    stepLabel: "Step 4",
     stage: "STAGE 04",
-    timeline: "LIVE SUPPORT",
     title: "Launch & Continuous Support",
     subtitle: "Smooth deployment & long-term stability",
     description:
@@ -74,210 +74,252 @@ const STEPS: Step[] = [
       "Post-Launch Technical Support",
       "Full Code & Credential Ownership",
     ],
-    progress: 100,
+    icon: "🚀",
   },
 ];
 
 const containerVariants: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.18 } },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+const cardLeftVariants: Variants = {
+  hidden: { opacity: 0, x: -40 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.0, 0.0, 0.2, 1] },
+    x: 0,
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+const cardRightVariants: Variants = {
+  hidden: { opacity: 0, x: 40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
 export default function Process() {
-  const [activeStep, setActiveStep] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track scroll progress for central glowing neon laser line
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 70%", "end 75%"],
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 24,
+    restDelta: 0.001,
+  });
+
+  const lineHeight = useTransform(smoothProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section
       id="process"
-      className="border-b border-border-subtle py-24 relative overflow-hidden bg-bg-base"
+      className="border-b border-border-subtle py-24 sm:py-32 relative overflow-hidden bg-bg-base"
       aria-labelledby="process-heading"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-lime/5 blur-[160px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-lime/5 blur-[180px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-container mx-auto px-gutter">
         {/* Section Header */}
-        <div className="mb-12 max-w-3xl">
-          <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-3 flex items-center gap-2 font-bold">
+        <div className="mb-16 md:mb-24 max-w-3xl mx-auto text-center">
+          <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-3 inline-flex items-center gap-2 font-bold bg-lime/10 border border-lime/30 px-3.5 py-1 rounded-full">
             <span className="w-2 h-2 rounded-full bg-lime animate-pulse" />
             HOW WE WORK TOGETHER
           </span>
           <h2
             id="process-heading"
-            className="text-headline-md md:text-headline-lg font-sans font-bold text-text-primary tracking-tight leading-tight"
+            className="text-headline-md sm:text-headline-lg font-sans font-bold text-text-primary tracking-tight leading-tight mt-2"
           >
             How We Go from Chaos to System
           </h2>
-          <p className="text-[16px] text-text-muted mt-2">
-            An interactive 4-stage technical roadmap from initial diagnostic to live production launch.
+          <p className="text-[16px] text-text-muted mt-3 max-w-xl mx-auto leading-relaxed">
+            A transparent 4-stage technical roadmap from initial diagnostic to live production launch.
           </p>
         </div>
 
-        {/* Interactive Roadmap Progress Nav Bar */}
-        <div className="mb-10 bg-bg-surface/80 border border-border-subtle backdrop-blur-md p-4 sm:p-5 rounded-3xl shadow-xl">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-2 font-mono text-xs text-text-muted">
-              <span className="text-lime font-bold">● INTERACTIVE ROADMAP:</span>
-              <span>Click any stage below to inspect focus & deliverables</span>
-            </div>
-            <div className="flex items-center gap-2 font-mono text-xs">
-              <span className="text-text-faint">ROADMAP PROGRESS:</span>
-              <span className="text-lime font-bold">{STEPS[activeStep].progress}%</span>
-            </div>
-          </div>
+        {/* Alternating Staggered Vertical Timeline */}
+        <div ref={containerRef} className="relative max-w-5xl mx-auto">
+          {/* Central Vertical Base Line (Desktop) */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[2px] bg-border-subtle/80 rounded-full" />
 
-          {/* Connected Laser Track Bar */}
-          <div className="relative mb-3">
-            <div className="h-1.5 bg-bg-base border border-border-subtle rounded-full w-full overflow-hidden">
-              <motion.div
-                className="h-full bg-gradient-to-r from-lime via-lime-bright to-lime shadow-[0_0_12px_rgba(200,255,0,0.8)] rounded-full"
-                animate={{ width: `${STEPS[activeStep].progress}%` }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </div>
-          </div>
+          {/* Animated Central Glowing Lime Laser Progress Beam */}
+          <motion.div
+            className="hidden md:block absolute left-1/2 -translate-x-1/2 top-4 w-[2px] bg-gradient-to-b from-lime via-lime-bright to-lime rounded-full shadow-[0_0_15px_rgba(200,255,0,0.9)] origin-top"
+            style={{ height: lineHeight }}
+          />
 
-          {/* Interactive Stage Selector Buttons */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {/* Mobile Left Vertical Line */}
+          <div className="md:hidden absolute left-5 top-4 bottom-4 w-[2px] bg-border-subtle/80 rounded-full" />
+
+          <motion.div
+            className="space-y-12 md:space-y-20 relative z-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+          >
             {STEPS.map((step, idx) => {
-              const isActive = activeStep === idx;
+              const isEven = idx % 2 === 0; // Even idx (0, 2): Card Left, Badge Right on Desktop
+
               return (
-                <button
-                  key={step.number}
-                  onClick={() => setActiveStep(idx)}
-                  className={`px-3 py-2.5 rounded-2xl font-mono text-xs font-bold transition-all duration-200 flex items-center justify-between border ${
-                    isActive
-                      ? "bg-lime text-on-primary border-lime shadow-[0_0_15px_rgba(200,255,0,0.3)] scale-[1.02]"
-                      : "bg-bg-base/60 text-text-muted border-border-subtle hover:border-lime/40 hover:text-text-primary"
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <span
-                      className={`w-5 h-5 rounded-lg flex items-center justify-center text-[10px] ${
-                        isActive ? "bg-on-primary text-lime" : "bg-lime/10 text-lime"
+                <div key={step.number} className="relative group">
+                  {/* Central Timeline Dot Node (Desktop) */}
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-8 items-center justify-center w-5 h-5 rounded-full bg-bg-base border-2 border-lime shadow-[0_0_14px_rgba(200,255,0,0.6)] z-30 group-hover:scale-125 transition-transform duration-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-lime" />
+                  </div>
+
+                  {/* Mobile Left Dot Node */}
+                  <div className="md:hidden absolute left-[15px] top-8 w-3.5 h-3.5 rounded-full bg-bg-base border-2 border-lime shadow-[0_0_10px_rgba(200,255,0,0.5)] z-30" />
+
+                  {/* Desktop Grid Layout (Alternating 2 Columns) */}
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-center">
+                    {/* LEFT COLUMN */}
+                    <div
+                      className={`md:col-span-6 ${
+                        isEven
+                          ? "order-1"
+                          : "order-2 md:order-1 pl-12 md:pl-0 flex justify-start md:justify-end"
                       }`}
                     >
-                      {step.number}
-                    </span>
-                    <span className="truncate">{step.title}</span>
-                  </span>
-                  <span className="text-[10px] opacity-80 shrink-0">{step.timeline}</span>
-                </button>
+                      {isEven ? (
+                        /* Card on Left */
+                        <motion.div variants={cardLeftVariants} className="pl-12 md:pl-0">
+                          <SpotlightCard
+                            className="p-7 sm:p-9 rounded-3xl border border-border-subtle hover:border-lime/60 transition-all duration-300 shadow-2xl bg-bg-surface/80 backdrop-blur-xl group"
+                            enableTilt={true}
+                          >
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="w-11 h-11 rounded-2xl bg-lime/10 border border-lime/30 flex items-center justify-center text-xl shadow-[0_0_12px_rgba(200,255,0,0.15)] group-hover:scale-110 transition-transform">
+                                {step.icon}
+                              </div>
+                              <span className="font-mono text-[10px] font-bold text-lime uppercase tracking-widest px-3 py-1 rounded-full border border-lime/30 bg-lime/10">
+                                {step.stage}
+                              </span>
+                            </div>
+
+                            <h3 className="text-2xl font-sans font-bold text-text-primary mb-1 group-hover:text-lime transition-colors duration-200">
+                              {step.title}
+                            </h3>
+                            <p className="font-mono text-xs text-lime/90 mb-4 font-semibold">
+                              {step.subtitle}
+                            </p>
+
+                            <p className="text-[16px] text-text-muted leading-relaxed mb-6">
+                              {step.description}
+                            </p>
+
+                            {/* Deliverables List */}
+                            <div className="border-t border-border-subtle/60 pt-4 mt-2">
+                              <div className="font-mono text-[10px] text-text-faint uppercase tracking-widest mb-3 font-bold">
+                                KEY DELIVERABLES:
+                              </div>
+                              <div className="flex flex-col gap-2">
+                                {step.deliverables.map((item) => (
+                                  <div
+                                    key={item}
+                                    className="rounded-xl bg-bg-base/80 border border-border-subtle px-3.5 py-2 text-xs font-mono text-text-muted flex items-center gap-2.5 group-hover:border-lime/30 transition-colors"
+                                  >
+                                    <span className="text-lime font-bold shrink-0">✓</span>
+                                    <span className="truncate">{item}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </SpotlightCard>
+                        </motion.div>
+                      ) : (
+                        /* Step Pointer Badge on Left */
+                        <motion.div variants={cardLeftVariants} className="hidden md:flex justify-end">
+                          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-bg-surface/90 border border-border-subtle backdrop-blur-md shadow-lg group-hover:border-lime/50 transition-colors">
+                            <span className="w-2 h-2 rounded-full bg-lime animate-pulse" />
+                            <span className="font-mono text-sm font-bold text-text-primary tracking-wider">
+                              {step.stepLabel}
+                            </span>
+                          </div>
+                        </motion.div>
+                      )}
+                    </div>
+
+                    {/* RIGHT COLUMN */}
+                    <div
+                      className={`md:col-span-6 ${
+                        isEven
+                          ? "order-2 pl-12 md:pl-0 flex justify-start"
+                          : "order-1 md:order-2 pl-12 md:pl-0"
+                      }`}
+                    >
+                      {isEven ? (
+                        /* Step Pointer Badge on Right */
+                        <motion.div variants={cardRightVariants} className="hidden md:flex justify-start">
+                          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-bg-surface/90 border border-border-subtle backdrop-blur-md shadow-lg group-hover:border-lime/50 transition-colors">
+                            <span className="w-2 h-2 rounded-full bg-lime animate-pulse" />
+                            <span className="font-mono text-sm font-bold text-text-primary tracking-wider">
+                              {step.stepLabel}
+                            </span>
+                          </div>
+                        </motion.div>
+                      ) : (
+                        /* Card on Right */
+                        <motion.div variants={cardRightVariants}>
+                          <SpotlightCard
+                            className="p-7 sm:p-9 rounded-3xl border border-border-subtle hover:border-lime/60 transition-all duration-300 shadow-2xl bg-bg-surface/80 backdrop-blur-xl group"
+                            enableTilt={true}
+                          >
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="w-11 h-11 rounded-2xl bg-lime/10 border border-lime/30 flex items-center justify-center text-xl shadow-[0_0_12px_rgba(200,255,0,0.15)] group-hover:scale-110 transition-transform">
+                                {step.icon}
+                              </div>
+                              <span className="font-mono text-[10px] font-bold text-lime uppercase tracking-widest px-3 py-1 rounded-full border border-lime/30 bg-lime/10">
+                                {step.stage}
+                              </span>
+                            </div>
+
+                            <h3 className="text-2xl font-sans font-bold text-text-primary mb-1 group-hover:text-lime transition-colors duration-200">
+                              {step.title}
+                            </h3>
+                            <p className="font-mono text-xs text-lime/90 mb-4 font-semibold">
+                              {step.subtitle}
+                            </p>
+
+                            <p className="text-[16px] text-text-muted leading-relaxed mb-6">
+                              {step.description}
+                            </p>
+
+                            {/* Deliverables List */}
+                            <div className="border-t border-border-subtle/60 pt-4 mt-2">
+                              <div className="font-mono text-[10px] text-text-faint uppercase tracking-widest mb-3 font-bold">
+                                KEY DELIVERABLES:
+                              </div>
+                              <div className="flex flex-col gap-2">
+                                {step.deliverables.map((item) => (
+                                  <div
+                                    key={item}
+                                    className="rounded-xl bg-bg-base/80 border border-border-subtle px-3.5 py-2 text-xs font-mono text-text-muted flex items-center gap-2.5 group-hover:border-lime/30 transition-colors"
+                                  >
+                                    <span className="text-lime font-bold shrink-0">✓</span>
+                                    <span className="truncate">{item}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </SpotlightCard>
+                        </motion.div>
+                      )}
+                    </div>
+                  </div>
+                </div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
-
-        {/* 4-Card Horizontal Roadmap Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {STEPS.map((step, idx) => {
-            const isActive = activeStep === idx;
-            return (
-              <motion.div
-                key={step.number}
-                variants={cardVariants}
-                className="h-full"
-                onClick={() => setActiveStep(idx)}
-              >
-                <SpotlightCard
-                  className={`p-7 rounded-3xl h-full flex flex-col justify-between border transition-all duration-300 shadow-xl backdrop-blur-md group cursor-pointer ${
-                    isActive
-                      ? "border-lime/80 bg-bg-surface/95 shadow-[0_0_25px_rgba(200,255,0,0.12)] scale-[1.01]"
-                      : "border-border-subtle bg-bg-surface/70 hover:border-lime/40"
-                  }`}
-                  enableTilt={true}
-                >
-                  <div>
-                    {/* Header: Step Badge & Stage Pill */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div
-                        className={`w-10 h-10 rounded-2xl flex items-center justify-center font-mono text-sm font-bold transition-all ${
-                          isActive
-                            ? "bg-lime text-on-primary shadow-[0_0_15px_rgba(200,255,0,0.4)]"
-                            : "bg-lime/10 border border-lime/30 text-lime group-hover:scale-105"
-                        }`}
-                      >
-                        {step.number}
-                      </div>
-                      <span
-                        className={`font-mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${
-                          isActive
-                            ? "bg-lime/20 border-lime text-lime"
-                            : "bg-lime/5 border-lime/20 text-lime/80"
-                        }`}
-                      >
-                        {step.stage}
-                      </span>
-                    </div>
-
-                    {/* Step Title & Subtitle */}
-                    <h3
-                      className={`text-xl font-sans font-bold mb-1 transition-colors duration-200 ${
-                        isActive ? "text-lime" : "text-text-primary group-hover:text-lime"
-                      }`}
-                    >
-                      {step.title}
-                    </h3>
-                    <p className="font-mono text-[11px] text-lime/90 mb-4 font-medium">
-                      {step.subtitle}
-                    </p>
-
-                    {/* Description */}
-                    <p className="text-[16px] text-text-muted leading-relaxed mb-6">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  {/* Interactive Deliverables List */}
-                  <div className="border-t border-border-subtle/60 pt-4 mt-2">
-                    <div className="font-mono text-[10px] text-text-faint uppercase tracking-widest mb-3 flex items-center justify-between font-bold">
-                      <span>KEY DELIVERABLES:</span>
-                      <span className="text-lime">{step.timeline}</span>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      {step.deliverables.map((item) => (
-                        <div
-                          key={item}
-                          className={`rounded-xl px-3 py-1.5 text-xs font-mono flex items-center gap-2 transition-all ${
-                            isActive
-                              ? "bg-bg-base border border-lime/40 text-text-primary"
-                              : "bg-bg-base/60 border border-border-subtle/80 text-text-muted group-hover:border-lime/30"
-                          }`}
-                        >
-                          <span className="text-lime font-bold shrink-0">✓</span>
-                          <span className="truncate">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Milestone Completion Status */}
-                    <div className="mt-4 pt-3 border-t border-border-subtle/40 flex items-center justify-between font-mono text-[11px]">
-                      <span className="text-text-faint">STATUS:</span>
-                      <span className={isActive ? "text-lime font-bold" : "text-text-muted"}>
-                        {step.progress}% READY
-                      </span>
-                    </div>
-                  </div>
-                </SpotlightCard>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );
