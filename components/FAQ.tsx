@@ -5,20 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS = [
   {
-    q: "Why hire one person instead of an agency?",
-    a: "Agencies split your work across different departments — design, dev, marketing — and things get lost between teams, plus you're paying for that overhead. With me, one person handles all of it, so nothing falls through the cracks and things move faster.",
+    q: "Can I hire you for just one specific task (e.g. only web dev or only n8n automation)?",
+    a: "Absolutely. If you already have ads running and just need an n8n workflow to connect your leads to WhatsApp, or just need a Shopify revamp, we can do just that single sprint.",
   },
   {
-    q: "What tools do you actually use?",
-    a: "I build websites with Next.js and React, backed by Convex or Supabase for the data side. For automation, I use n8n — it connects the tools you already use to AI, without needing custom code for every single piece. For ads, I work directly inside the Meta Ads API so we can see what's actually working, not just what looks good on a dashboard.",
+    q: "How long does a typical build take?",
+    a: "A dedicated landing page or automation workflow typically takes 4 to 7 days. A full store build or multi-system setup takes 10 to 14 days. You receive continuous progress previews.",
   },
   {
-    q: "How long does an AI agent or automation take to build?",
-    a: "Most agents — for customer support, lead sorting, or content — go from idea to a working first version in 2 to 4 weeks. You start seeing whether it works before months go by.",
+    q: "What happens if something breaks after launch?",
+    a: "I don't disappear after deployment. Every project includes post-launch support to ensure pixel tracking, checkout flows, and automated triggers run smoothly without interruptions.",
   },
   {
-    q: "Do you work alongside an existing team?",
-    a: "Yes. I often plug in as the person who handles the harder technical work — the parts your team doesn't have the time or the setup for.",
+    q: "How does pricing work?",
+    a: "Fixed, upfront pricing per project. After our initial 30-minute discovery call, you get a clear proposal detailing scope, timeline, and exact investment. No hidden retainers or surprise hourly invoices.",
   },
 ];
 
@@ -77,6 +77,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 export default function FAQ() {
   return (
     <section
+      id="faq"
       className="border-b"
       style={{ borderColor: "#434933" }}
       aria-labelledby="faq-heading"

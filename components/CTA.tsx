@@ -1,74 +1,111 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Magnetic from "@/components/Magnetic";
+import SpotlightCard from "@/components/SpotlightCard";
 
 export default function CTA() {
   return (
     <section
       id="contact"
-      className="bg-lime text-on-primary overflow-hidden relative"
+      className="bg-bg-base border-t border-border-subtle py-24 relative overflow-hidden"
       aria-labelledby="cta-heading"
     >
-      {/* Dot-matrix overlay in lime-on-lime */}
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-        aria-hidden
-      />
+      {/* Background ambient lighting */}
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-lime/5 blur-[120px] pointer-events-none -z-10" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.55, ease: [0.0, 0.0, 0.2, 1] }}
-        className="max-w-container mx-auto px-gutter py-24 text-center relative z-10"
-      >
-        {/* Status label */}
-        <div className="font-mono text-micro uppercase tracking-widest text-on-primary/60 mb-6">
-           Taking on 2 new projects this quarter */
-        </div>
+      <div className="max-w-container mx-auto px-gutter">
+        <SpotlightCard className="p-8 lg:p-14 border border-border-subtle hover:border-lime/40 transition-colors shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Column: Photo 2 - Cinematic Dark Study */}
+            <div className="lg:col-span-5 flex flex-col">
+              <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden border border-border-subtle group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/ravi-workspace-cinematic.jpg"
+                  alt="Ravi Chawra - Dark Study Desk Workspace"
+                  className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent" />
 
-        {/* Headline */}
-        <h2
-          id="cta-heading"
-          className="text-display font-sans font-extrabold text-bg-base leading-none tracking-tighter mb-6 max-w-3xl mx-auto"
-        >
-          Got a business that needs to run smarter?
-        </h2>
+                {/* Corner bracket accents */}
+                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-lime pointer-events-none" />
+                <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none" />
+              </div>
 
-        {/* Subheadline */}
-        <p className="text-headline-md font-sans text-on-primary/75 mb-12 max-w-2xl mx-auto">
-          Stop paying three different people to half-solve one problem. Get one person who owns the whole thing, start to finish.
-        </p>
+              <p className="font-mono text-micro text-lime italic mt-3.5 border-l-2 border-lime pl-3">
+                &ldquo;You talk directly with the engineer who builds your systems.&rdquo;
+              </p>
+            </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <motion.a
-            href="https://cal.com/ravichawra/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-bg-base text-lime font-mono text-label uppercase tracking-widest px-10 py-4 font-bold hover:-translate-y-0.5 transition-transform duration-200 inline-block"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            aria-label="Book a call"
-          >
-            Book a Call →
-          </motion.a>
+            {/* Right Column: Scheduling & Contact details */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <span className="font-mono text-micro text-lime uppercase tracking-widest flex items-center gap-2 mb-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
+                  LET&apos;S FIX YOUR BOTTLENECK
+                </span>
 
-          <motion.a
-            href="https://wa.me/917014383693"
-            className="border-2 border-bg-base text-bg-base font-mono text-label uppercase tracking-widest px-10 py-4 font-bold hover:bg-bg-base hover:text-lime transition-all duration-200 inline-flex items-center justify-center gap-2"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            aria-label="Connect on whatsapp"
-          >
-            Connect on whatsapp
-          </motion.a>
-        </div>
-      </motion.div>
+                <h2
+                  id="cta-heading"
+                  className="text-headline-lg font-sans font-bold text-text-primary tracking-tight leading-tight mb-4"
+                >
+                  Got a bottleneck in your business that needs fixing?
+                </h2>
+
+                <p className="text-body-md text-text-muted leading-relaxed mb-6">
+                  Whether your website is losing visitors, your ads aren&apos;t tracking properly, or your team is wasting hours on manual tasks — let&apos;s look at it together.<br />
+                  <span className="text-lime font-bold font-mono text-label mt-1 inline-block">
+                    30 minutes. No aggressive sales pitch. Just a clear look at what needs to be fixed.
+                  </span>
+                </p>
+
+                {/* Trust Badges */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 font-mono text-micro border-y border-border-subtle py-4">
+                  <div className="flex items-center gap-2 text-text-muted">
+                    <span className="text-lime font-bold">✓</span> Direct 1-on-1 Call
+                  </div>
+                  <div className="flex items-center gap-2 text-text-muted">
+                    <span className="text-lime font-bold">✓</span> Technical Roadmap
+                  </div>
+                  <div className="flex items-center gap-2 text-text-muted">
+                    <span className="text-lime font-bold">✓</span> Zero Sales Pressure
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Magnetic strength={0.25}>
+                  <motion.a
+                    href="https://cal.com/ravichawra/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-lime text-on-primary font-mono text-label uppercase tracking-widest px-8 py-4 font-bold brutalist-hover inline-block shadow-[0_0_20px_rgba(200,255,0,0.2)] text-center"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Book a 30-Min Strategy Call →
+                  </motion.a>
+                </Magnetic>
+
+                <Magnetic strength={0.25}>
+                  <motion.a
+                    href="https://wa.me/message/FGO7U6WF4F3FJ1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border border-lime text-lime font-mono text-label uppercase tracking-widest px-8 py-4 font-bold hover:bg-lime hover:text-on-primary transition-all duration-200 inline-block text-center"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    WhatsApp Directly →
+                  </motion.a>
+                </Magnetic>
+              </div>
+            </div>
+          </div>
+        </SpotlightCard>
+      </div>
     </section>
   );
 }

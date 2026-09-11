@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ResultsTicker from "@/components/ResultsTicker";
+import ProblemSection from "@/components/ProblemSection";
 import Capabilities from "@/components/Capabilities";
 import TechStack from "@/components/TechStack";
 import FeaturedWork from "@/components/FeaturedWork";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <ResultsTicker />
+        <ProblemSection />
         <Capabilities />
         <TechStack />
         <FeaturedWork />

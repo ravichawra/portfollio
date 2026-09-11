@@ -3,13 +3,14 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Magnetic from "@/components/Magnetic";
 
 const NAV_LINKS = [
-  { href: "/case-studies", label: "Work" },
-  { href: "/#services", label: "Services" },
-  { href: "/#process", label: "Process" },
+  { href: "#work", label: "Work" },
+  { href: "#services", label: "Services" },
+  { href: "#why-me", label: "The Solo Advantage" },
+  { href: "#faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Navbar({ backLink }: { backLink?: { href: string; label: string } } = {}) {
@@ -46,8 +47,11 @@ export default function Navbar({ backLink }: { backLink?: { href: string; label:
           <img
             src="/logo.svg"
             alt="Ravi Chawra"
-            className="h-3.5 md:h-4 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            className="h-4 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
+          <span className="font-mono text-micro font-bold tracking-widest text-text-primary hidden sm:inline-block border-l border-border-subtle pl-3 py-0.5">
+            SOLO BUILDER
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -88,16 +92,20 @@ export default function Navbar({ backLink }: { backLink?: { href: string; label:
           </div>
 
           {/* Book a Call CTA */}
-          <motion.a
-            href="https://cal.com/ravichawra/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:block bg-lime text-on-primary font-mono text-micro uppercase tracking-widest px-4 py-2 font-bold"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Book a Call
-          </motion.a>
+          <div className="hidden md:block">
+            <Magnetic strength={0.3}>
+              <motion.a
+                href="https://cal.com/ravichawra/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-lime text-on-primary font-mono text-micro uppercase tracking-widest px-4 py-2 font-bold inline-block shadow-[0_0_15px_rgba(200,255,0,0.15)] hover:shadow-[0_0_20px_rgba(200,255,0,0.3)] transition-shadow"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Book a Call
+              </motion.a>
+            </Magnetic>
+          </div>
 
           {/* Mobile hamburger */}
           <button

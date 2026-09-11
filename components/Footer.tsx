@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const FOOTER_LINKS = [
-  { href: "https://www.instagram.com/ravichawraaa/", label: "Instagram", external: true },
   { href: "https://www.linkedin.com/in/ravichawra/", label: "LinkedIn", external: true },
-  { href: "mailto:hello@ravichawra.com", label: "Email", external: false },
+  { href: "https://www.instagram.com/ravichawraaa/", label: "Instagram", external: true },
+  { href: "https://wa.me/message/FGO7U6WF4F3FJ1", label: "WhatsApp", external: true },
 ];
 
 export default function Footer() {
@@ -30,16 +30,22 @@ export default function Footer() {
       <div className="max-w-container mx-auto px-gutter py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         {/* Brand */}
         <div className="flex flex-col gap-2">
-          <Link href="/" className="inline-block">
+          <Link href="/" className="inline-block flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo.svg"
               alt="Ravi Chawra"
-              className="h-9 w-auto object-contain"
+              className="h-8 w-auto object-contain"
             />
+            <span className="font-mono text-micro font-bold tracking-widest text-text-primary border-l border-border-subtle pl-3 py-0.5">
+              SOLO BUILDER
+            </span>
           </Link>
           <p className="font-mono text-micro text-text-faint uppercase tracking-widest">
-            © 2026 RAVI CHAWRA ALL RIGHTS RESERVED
+            Full-Stack Web Engineering, Meta Ads & Autonomous Workflows.
+          </p>
+          <p className="font-mono text-[11px] text-text-faint uppercase tracking-widest opacity-80">
+            © 2026 RAVI CHAWRA. ALL RIGHTS RESERVED.
           </p>
         </div>
 

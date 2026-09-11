@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import SpotlightCard from "@/components/SpotlightCard";
 
 interface TrustPoint {
   id: string;
@@ -67,6 +68,27 @@ const TRUST_POINTS: TrustPoint[] = [
   },
 ];
 
+const GUARANTEES = [
+  {
+    id: "direct-access",
+    title: "Direct Access (No Account Managers)",
+    description:
+      "You get my direct WhatsApp number. When you need a button changed, an ad paused, or an automation tweaked, you don't file a ticket with an agency intern. You talk directly to the person writing the code.",
+  },
+  {
+    id: "keep-it-simple",
+    title: "Built to Keep Things Simple",
+    description:
+      "I don't sell you 10 paid SaaS tools when a clean n8n workflow can do the job for free. You retain 100% ownership of your code, ad accounts, and automation credentials.",
+  },
+  {
+    id: "speed-over-bureaucracy",
+    title: "Speed Over Bureaucracy",
+    description:
+      "Agencies take 2 weeks just to complete client onboarding meetings. I usually audit your setup and start building within 48 hours.",
+  },
+];
+
 const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
@@ -85,7 +107,7 @@ export default function WhyMe() {
   return (
     <section
       id="why-me"
-      className="border-b border-border-subtle py-20"
+      className="border-b border-border-subtle py-24 relative overflow-hidden bg-bg-base"
       aria-labelledby="why-me-heading"
     >
       <div className="max-w-container mx-auto px-gutter">
@@ -95,57 +117,93 @@ export default function WhyMe() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-14 text-center"
+          className="mb-16"
         >
-          <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-3">
-             WHY ME
+          <span className="font-mono text-micro text-lime uppercase tracking-widest block mb-3 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
+            DIRECT COLLABORATION
           </span>
           <h2
             id="why-me-heading"
-            className="text-headline-lg font-sans font-bold text-text-primary"
+            className="text-headline-lg font-sans font-bold text-text-primary tracking-tight"
           >
-            Why work with one person instead of three
+            What working with me actually feels like.
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {TRUST_POINTS.map((point) => (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Left Column: Photo 1 Studio Portrait inside brutalist terminal card */}
+          <div className="lg:col-span-5 flex flex-col">
+            <SpotlightCard className="p-6 h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
+              <div className="relative aspect-[4/5] w-full overflow-hidden border border-border-subtle mb-6 group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/ravi-portrait.jpg"
+                  alt="Ravi Chawra - Solo Systems Architect"
+                  className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent" />
+                
+                {/* Corner Bracket Accents */}
+                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-lime pointer-events-none" />
+                <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-lime pointer-events-none" />
+                <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-lime pointer-events-none" />
+                <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none" />
+
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-micro bg-bg-base/90 px-3 py-1.5 border border-border-subtle backdrop-blur-md">
+                  <span className="text-lime font-bold">● DIRECT LINE ACTIVE</span>
+                  <span className="text-text-faint">NO MIDDLEMEN</span>
+                </div>
+              </div>
+
+              <div>
+                <div className="font-mono text-headline-sm font-bold text-text-primary">
+                  Ravi Chawra
+                </div>
+                <div className="font-mono text-micro text-lime uppercase tracking-widest mt-0.5">
+                  Solo Builder & Systems Architect
+                </div>
+                <p className="text-body-sm text-text-muted mt-2">
+                  100% direct communication. Every line of code, ad campaign, and automation is crafted by me.
+                </p>
+              </div>
+            </SpotlightCard>
+          </div>
+
+          {/* Right Column: 3 Plain-English Guarantees */}
+          <div className="lg:col-span-7 flex flex-col justify-between gap-6">
             <motion.div
-              key={point.id}
-              variants={cardVariants}
-              className="bg-bg-surface border border-border-subtle p-8 lg:p-10 flex flex-col gap-5 hover:border-lime transition-colors duration-300 group"
+              className="flex flex-col gap-6 h-full justify-between"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
             >
-              {/* Icon */}
-              <div className="group-hover:scale-110 transition-transform duration-300 origin-left">
-                {point.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-headline-md font-sans font-semibold text-lime">
-                {point.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-body-md text-text-muted leading-relaxed">
-                {point.description}
-              </p>
-
-              {/* Decorative corner */}
-              <div className="mt-auto pt-4 border-t border-border-subtle">
-                <span className="font-mono text-micro text-text-faint uppercase tracking-widest">
-                  {point.id}
-                </span>
-              </div>
+              {GUARANTEES.map((item, idx) => (
+                <motion.div key={item.id} variants={cardVariants} className="h-full">
+                  <SpotlightCard className="p-8 h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-mono text-micro text-lime font-bold tracking-widest">
+                          GUARANTEE 0{idx + 1}
+                        </span>
+                        <span className="font-mono text-micro text-text-faint">
+                          #{item.id}
+                        </span>
+                      </div>
+                      <h3 className="text-headline-md font-sans font-bold text-text-primary mb-3 group-hover:text-lime transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-body-md text-text-muted leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </SpotlightCard>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

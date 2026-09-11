@@ -172,7 +172,7 @@ export default function BlogListing({ initialPosts }: { initialPosts: Post[] }) 
             <p
               style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "#8e9479" }}
             >
-              /* No published entries found under this category. */
+               No published entries found under this category. */
             </p>
           </div>
         ) : (

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import SmoothScroll from "@/components/SmoothScroll";
 import DotGridParallax from "@/components/DotGridParallax";
 import "./globals.css";
 
@@ -21,26 +22,23 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://ravichawra.com"),
   title: {
-    default: "Ravi Chawra | Full-Stack Engineer & AI Systems Architect",
+    default: "Ravi Chawra | Solo Builder, Full-Stack Developer & Automation Engineer",
     template: "%s | Ravi Chawra",
   },
   description:
-    "Official portfolio of Ravi Chawra — Full-Stack Engineer & AI Systems Architect. Specializing in high-performance Next.js web applications, custom LLM AI agents, n8n automation, and ROI-driven digital infrastructure.",
+    "Stop paying three different people to fix your ads, website, and automations. I build the website, set up the tracking, run the ads, and automate the manual steps.",
   keywords: [
     "Ravi Chawra",
     "Ravi Chawra developer",
     "Ravi Chawra portfolio",
-    "Ravi Chawra AI engineer",
-    "Full-Stack Developer",
-    "AI Systems Architect",
-    "Next.js Developer",
-    "React Specialist",
-    "n8n Automation Engineer",
-    "Shopify Headless Developer",
-    "Performance Marketing Engineer",
-    "Freelance Software Engineer",
-    "Generative Engine Optimization",
-    "GEO AI",
+    "Ravi Chawra solo builder",
+    "Full-Stack Web Developer",
+    "Automation Engineer",
+    "n8n Automation",
+    "Shopify Developer",
+    "Meta Ads Engineer",
+    "Conversion API CAPI",
+    "Freelance Developer India",
   ],
   authors: [{ name: "Ravi Chawra", url: "https://ravichawra.com" }],
   creator: "Ravi Chawra",
@@ -49,25 +47,25 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://ravichawra.com",
-    title: "Ravi Chawra | Full-Stack Engineer & AI Systems Architect",
+    title: "Ravi Chawra | Solo Builder, Full-Stack Developer & Automation Engineer",
     description:
-      "I design, build, and automate systems that scale. Next.js web engineering, custom AI agents, and n8n workflow automation.",
+      "Stop paying three different people to fix your ads, website, and automations. One person. Direct communication. Total accountability.",
     siteName: "Ravi Chawra",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/ravi-workspace-cinematic.jpg",
         width: 1200,
         height: 630,
-        alt: "Ravi Chawra — Full-Stack Engineer & AI Systems Architect",
+        alt: "Ravi Chawra — Solo Builder & Automation Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ravi Chawra | Full-Stack Engineer & AI Systems Architect",
+    title: "Ravi Chawra | Solo Builder, Full-Stack Developer & Automation Engineer",
     description:
-      "I design, build, and automate systems that scale.",
-    images: ["/og-image.png"],
+      "Stop paying three different people to fix your ads, website, and automations.",
+    images: ["/images/ravi-workspace-cinematic.jpg"],
     creator: "@ravichawra",
   },
   robots: {
@@ -97,7 +95,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Enhanced Structured Data (JSON-LD) for Search Engines & LLM / GEO indexing (ChatGPT, Perplexity, Gemini, Claude)
+  // Enhanced Structured Data (JSON-LD) for Search Engines & LLM / GEO indexing
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -108,34 +106,35 @@ export default function RootLayout({
         "givenName": "Ravi",
         "familyName": "Chawra",
         "url": "https://ravichawra.com",
-        "jobTitle": "Full-Stack Engineer & AI Systems Architect",
-        "description": "Full-Stack Engineer and AI Systems Architect specializing in Next.js web applications, LLM AI agent integration, n8n workflow automation, and digital infrastructure.",
+        "jobTitle": "Solo Builder, Full-Stack Web Developer & Automation Engineer",
+        "description": "Solo Builder and Full-Stack Developer specializing in high-converting web applications, Shopify stores, Meta Ads server-side tracking, and n8n workflow automations.",
+        "image": "https://ravichawra.com/images/ravi-portrait.jpg",
         "knowsAbout": [
           "Full-Stack Web Development",
-          "AI Agents & LLM Integrations",
-          "n8n & Workflow Automation",
-          "Performance Marketing",
-          "Next.js",
-          "React",
+          "Shopify & E-Commerce Engineering",
+          "n8n Workflow Automations",
+          "Meta Ads & Conversion API (CAPI)",
+          "Next.js & React",
           "TypeScript",
-          "Shopify Headless",
+          "AI Agent Automations"
         ],
         "sameAs": [
           "https://github.com/ravichawra",
           "https://linkedin.com/in/ravichawra",
+          "https://instagram.com/ravichawraaa"
         ],
       },
       {
         "@type": "ProfessionalService",
         "@id": "https://ravichawra.com/#service",
-        "name": "Ravi Chawra Engineering & AI Solutions",
+        "name": "Ravi Chawra — Solo Systems & Engineering",
         "url": "https://ravichawra.com",
         "provider": { "@id": "https://ravichawra.com/#person" },
         "serviceType": [
           "Full-Stack Web Development",
-          "Custom AI Agent Building",
-          "Workflow & Business Automation",
-          "Performance Marketing Engineering"
+          "Shopify Custom Store Build",
+          "n8n Workflow Automation",
+          "Meta Ads & Conversion API Setup"
         ],
         "areaServed": "Worldwide",
       },
@@ -144,7 +143,7 @@ export default function RootLayout({
         "@id": "https://ravichawra.com/#website",
         "url": "https://ravichawra.com",
         "name": "Ravi Chawra",
-        "description": "Official Portfolio & Engineering Journal of Ravi Chawra",
+        "description": "Official Portfolio & Systems Showcase of Ravi Chawra",
         "publisher": { "@id": "https://ravichawra.com/#person" },
         "inLanguage": "en-US",
       },
@@ -160,8 +159,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${jetbrains.variable}`}>
-        <DotGridParallax />
-        {children}
+        <SmoothScroll>
+          <DotGridParallax />
+          {children}
+        </SmoothScroll>
         <SpeedInsights />
       </body>
     </html>

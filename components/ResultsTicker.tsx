@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const TICKER_ITEMS = [
-  { metric: "SHOPIFY BUILDS", label: "" },
-  { metric: "META ADS", label: "" },
-  { metric: "N8N AUTOMATION", label: "" },
-  { metric: "ONE PERSON, START TO FINISH", label: "" },
+  { metric: "HIGH-CONVERTING SHOPIFY STORES", label: "" },
+  { metric: "META ADS & CAPI TRACKING", label: "" },
+  { metric: "N8N WORKFLOW AUTOMATION", label: "" },
+  { metric: "ONE PERSON, TOTAL ACCOUNTABILITY", label: "" },
 ];
 
 export default function ResultsTicker() {
