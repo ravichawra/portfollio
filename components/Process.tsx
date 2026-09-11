@@ -129,7 +129,7 @@ export default function Process() {
                     </p>
 
                     {/* Description */}
-                    <p className="text-body-sm text-text-muted leading-relaxed">
+                    <p className="text-[16px] text-text-muted leading-relaxed">
                       {step.description}
                     </p>
                   </div>

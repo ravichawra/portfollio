@@ -53,9 +53,9 @@ export default function CTA() {
                   Got a bottleneck in your business that needs fixing?
                 </h2>
 
-                <p className="text-body-md text-text-muted leading-relaxed mb-6">
+                <p className="text-[16px] text-text-muted leading-relaxed mb-6">
                   Whether your website is losing visitors, your ads aren&apos;t tracking properly, or your team is wasting hours on manual tasks — let&apos;s look at it together.<br />
-                  <span className="text-lime font-bold font-mono text-label mt-1 inline-block">
+                  <span className="text-lime font-bold font-mono text-[14px] mt-1.5 inline-block">
                     30 minutes. No aggressive sales pitch. Just a clear look at what needs to be fixed.
                   </span>
                 </p>

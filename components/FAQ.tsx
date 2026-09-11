@@ -61,7 +61,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             className="overflow-hidden"
           >
             <p
-              className="pb-6 text-[16px] sm:text-[22px] text-text-muted leading-relaxed max-w-3xl"
+              className="pb-6 text-[16px] sm:text-[16px] text-text-muted leading-relaxed max-w-3xl"
               style={{ fontFamily: "var(--font-sans)" }}
             >
               {a}
@@ -94,7 +94,7 @@ export default function FAQ() {
             >
               Questions people usually ask before we start
             </h2>
-            <p className="text-body-md text-text-muted">
+            <p className="text-[16px] text-text-muted">
               Here&apos;s what most people want to know upfront.
             </p>
           </div>

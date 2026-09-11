@@ -49,11 +49,12 @@
   --container-max: 1200px;
 
   /* Font sizes (clamp-based for hero & responsive scaling) */
-  --text-display: clamp(2.15rem, 4.5vw, 3.25rem);
-  --text-headline-lg: clamp(1.85rem, 3.8vw, 2.75rem);
+  --text-display: clamp(1.85rem, 3.8vw, 2.8125rem); /* 45px max */
+  --text-headline-lg: clamp(1.75rem, 3.5vw, 2.25rem); /* 36px max */
   --text-headline-md: clamp(1.5rem, 2.8vw, 2rem);
-  --text-body-lg: 1.25rem;
-  --text-body-md: 1.125rem;
+  --text-body-lg: 1.125rem; /* 18px for section lead text */
+  --text-body-md: 1rem;     /* 16px uniform body font size */
+  --text-body-sm: 1rem;     /* 16px uniform body font size */
   --text-label: 0.875rem;
   --text-micro: 0.75rem;
 
@@ -101,7 +102,7 @@ body {
   background-color: #0d0e0f;
   color: #e3e2e2;
   font-family: var(--font-sans);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;

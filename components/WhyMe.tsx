@@ -163,7 +163,7 @@ export default function WhyMe() {
                 <div className="font-mono text-micro text-lime uppercase tracking-widest mt-0.5">
                   Solo Builder & Systems Architect
                 </div>
-                <p className="text-body-sm text-text-muted mt-2">
+                <p className="text-[16px] text-text-muted mt-2">
                   100% direct communication. Every line of code, ad campaign, and automation is crafted by me.
                 </p>
               </div>
@@ -194,7 +194,7 @@ export default function WhyMe() {
                       <h3 className="text-headline-md font-sans font-bold text-text-primary mb-3 group-hover:text-lime transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-body-md text-text-muted leading-relaxed">
+                      <p className="text-[16px] text-text-muted leading-relaxed">
                         {item.description}
                       </p>
                     </div>

@@ -66,12 +66,12 @@ export default function FeaturedWork() {
                   <h3 className="text-xl lg:text-headline-md font-sans font-bold text-text-primary group-hover:text-lime transition-colors duration-300">
                     Vyonnastore.in (D2C Jewelry)
                   </h3>
-                  <p className="text-body-md text-text-muted mt-2.5 leading-relaxed">
+                  <p className="text-[16px] text-text-muted mt-2.5 leading-relaxed">
                     Designed & built their complete Shopify store, resolved checkout drop-offs with automated abandoned cart sequences, and launched targeted Meta ad campaigns.
                   </p>
 
                   <blockquote className="border-l-2 border-lime pl-3.5 bg-bg-base/60 py-2.5 pr-3 mt-4 border border-border-subtle">
-                    <p className="text-body-sm text-text-muted italic leading-relaxed">
+                    <p className="text-[16px] text-text-muted italic leading-relaxed">
                       &ldquo;Ravi was incredibly responsive throughout — quick replies, quick fixes, no chasing needed. Working with him felt easy from start to finish.&rdquo;
                     </p>
                     <footer className="mt-1.5 font-mono text-micro text-lime font-bold">
@@ -141,7 +141,7 @@ export default function FeaturedWork() {
                   <h3 className="text-xl lg:text-headline-md font-sans font-bold text-text-primary group-hover:text-lime transition-colors duration-300">
                     M.R.K. Public School
                   </h3>
-                  <p className="text-body-md text-text-muted mt-2.5 leading-relaxed">
+                  <p className="text-[16px] text-text-muted mt-2.5 leading-relaxed">
                     Clean, fast, authoritative digital portal for parents & students. Lightweight, accessible UI optimized for mobile parents on slower connections, complete with instant lead & admission inquiry routing.
                   </p>
 

@@ -138,7 +138,7 @@ export default function Hero() {
           <motion.h1
             id="hero-headline"
             variants={itemVariants}
-            className="text-display font-sans font-extrabold text-text-primary leading-[1.12] tracking-tight"
+            className="text-[28px] sm:text-[36px] md:text-[45px] font-sans font-extrabold text-text-primary leading-[1.15] tracking-tight"
           >
             Stop paying three different people to fix your{" "}
             <span className="text-lime underline decoration-lime/30 underline-offset-4">
@@ -148,7 +148,7 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="text-body-lg text-text-muted max-w-xl whitespace-pre-line min-h-[120px] leading-relaxed"
+            className="text-[16px] text-text-muted max-w-xl whitespace-pre-line min-h-[120px] leading-relaxed"
             aria-live="polite"
           >
             {displayed}

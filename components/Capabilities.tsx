@@ -125,9 +125,9 @@ export default function Capabilities() {
                   {cap.bullets.map((bullet) => (
                     <li
                       key={bullet}
-                      className="flex items-start gap-3 font-mono text-micro text-text-muted group-hover:text-text-primary transition-colors"
+                      className="flex items-start gap-3 text-[16px] text-text-muted group-hover:text-text-primary transition-colors leading-relaxed"
                     >
-                      <span className="text-lime mt-0.5" aria-hidden>›</span>
+                      <span className="text-lime font-bold mt-0.5" aria-hidden>›</span>
                       <span>{bullet}</span>
                     </li>
                   ))}

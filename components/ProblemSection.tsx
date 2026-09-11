@@ -113,7 +113,7 @@ export default function ProblemSection() {
                     {card.title}
                   </h3>
 
-                  <p className="text-body-md text-text-muted leading-relaxed">
+                  <p className="text-[16px] text-text-muted leading-relaxed">
                     {card.reality}
                   </p>
                 </div>
