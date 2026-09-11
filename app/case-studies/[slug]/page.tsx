@@ -34,6 +34,7 @@ export async function generateMetadata({
   return {
     title: `${study.title} | Case Study | RAVI CHAWRA`,
     description: study.excerpt || study.title,
+    authors: [{ name: "Ravi Chawra (Ravi Prakash Chawra)", url: "https://ravichawra.com" }],
   };
 }
 

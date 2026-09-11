@@ -139,7 +139,7 @@ export default function WhyMe() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/ravi-portrait.jpg"
-                  alt="Ravi Chawra - Solo Systems Architect"
+                  alt="Ravi Prakash Chawra (Ravi Chawra) — Solo Systems Architect"
                   className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent" />
@@ -164,7 +164,7 @@ export default function WhyMe() {
                   Solo Builder & Systems Architect
                 </div>
                 <p className="text-[16px] text-text-muted mt-2">
-                  100% direct communication. Every line of code, ad campaign, and automation is crafted by me.
+                  100% direct communication with Ravi Prakash Chawra (Ravi Chawra). Every line of code, ad campaign, and automation is crafted by me.
                 </p>
               </div>
             </SpotlightCard>

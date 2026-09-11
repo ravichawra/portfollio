@@ -31,11 +31,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | Ravi Chawra`,
     description: post.excerpt || `${post.title} — Written by Ravi Chawra.`,
-    authors: [{ name: "Ravi Chawra", url: "https://ravichawra.com" }],
+    authors: [{ name: "Ravi Chawra (Ravi Prakash Chawra)", url: "https://ravichawra.com" }],
     creator: "Ravi Chawra",
     publisher: "Ravi Chawra",
     keywords: [
       "Ravi Chawra",
+      "Ravi Prakash",
+      "Ravi Prakash Chawra",
       post.category || "Engineering",
       ...(post.tags || []),
     ],
@@ -121,11 +123,14 @@ export default async function BlogPostPage({ params }: Props) {
     "dateModified": post.publishedAt || new Date().toISOString(),
     "author": {
       "@type": "Person",
+      "@id": "https://ravichawra.com/#person",
       "name": "Ravi Chawra",
+      "alternateName": ["Ravi Prakash", "Ravi Prakash Chawra"],
       "url": "https://ravichawra.com",
     },
     "publisher": {
       "@type": "Person",
+      "@id": "https://ravichawra.com/#person",
       "name": "Ravi Chawra",
       "url": "https://ravichawra.com",
     },

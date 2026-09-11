@@ -121,11 +121,14 @@ export default function Hero() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/ravi-portrait.jpg"
-                alt="Ravi Chawra"
+                alt="Ravi Chawra (Ravi Prakash Chawra) — Solo Builder & Automation Engineer"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="font-mono text-micro text-text-primary uppercase tracking-widest flex items-center gap-2">
+            <div
+              className="font-mono text-micro text-text-primary uppercase tracking-widest flex items-center gap-2"
+              title="Ravi Chawra (Ravi Prakash Chawra)"
+            >
               <span className="font-bold text-lime">Ravi Chawra</span>
               <span className="text-text-faint">•</span>
               <span className="text-lime flex items-center gap-1.5">

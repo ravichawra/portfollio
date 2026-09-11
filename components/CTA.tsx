@@ -91,7 +91,7 @@ export default function CTA() {
 
                 <Magnetic strength={0.25}>
                   <motion.a
-                    href="https://wa.me/message/FGO7U6WF4F3FJ1"
+                    href="https://wa.me/917014383693"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border border-lime text-lime font-mono text-xs uppercase tracking-widest px-6 py-3 font-bold rounded-full hover:bg-lime hover:text-on-primary transition-all duration-200 inline-block text-center"

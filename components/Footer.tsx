@@ -34,7 +34,7 @@ export default function Footer() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo.svg"
-              alt="Ravi Chawra"
+              alt="Ravi Chawra (Ravi Prakash Chawra)"
               className="h-8 w-auto object-contain"
             />
             <span className="font-mono text-micro font-bold tracking-widest text-text-primary border-l border-border-subtle pl-3 py-0.5">
@@ -45,7 +45,7 @@ export default function Footer() {
             Full-Stack Web Engineering, Meta Ads & Autonomous Workflows.
           </p>
           <p className="font-mono text-[11px] text-text-faint uppercase tracking-widest opacity-80">
-            © 2026 RAVI CHAWRA. ALL RIGHTS RESERVED.
+            © 2026 RAVI CHAWRA (RAVI PRAKASH CHAWRA). ALL RIGHTS RESERVED.
           </p>
         </div>
 
