@@ -114,21 +114,24 @@ export default function FeaturedWork() {
             enableTilt={false}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
-              {/* Image / Header Pane */}
-              <div className="lg:col-span-6 min-h-[240px] lg:min-h-[340px] relative overflow-hidden group bg-bg-surface/60 p-6 lg:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border-subtle">
-                <div className="font-mono text-micro text-lime uppercase tracking-widest font-bold">
-                  INSTITUTIONAL WEB PRESENCE
+              {/* Image Pane */}
+              <div className="lg:col-span-6 min-h-[280px] lg:min-h-[380px] relative overflow-hidden group border-b lg:border-b-0 lg:border-r border-border-subtle">
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  style={{
+                    backgroundImage: "url('/images/mrk-school-featured.png')",
+                  }}
+                  role="img"
+                  aria-label="M.R.K. Public School — Live institutional web portal build"
+                />
+                <div className="absolute inset-0 bg-bg-base/20 group-hover:bg-bg-base/0 transition-colors duration-500" />
+                <div className="absolute top-4 left-4">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path d="M0 24L0 0L24 0" stroke="#C8FF00" strokeWidth="1.5" />
+                  </svg>
                 </div>
-                <div className="my-auto py-6">
-                  <div className="font-mono text-xl lg:text-headline-md text-text-primary font-bold">
-                    M.R.K. PUBLIC SCHOOL
-                  </div>
-                  <div className="font-mono text-micro text-text-faint uppercase tracking-widest mt-1">
-                    High-Speed Netlify Frontend • Direct Admission Portal
-                  </div>
-                </div>
-                <div className="font-mono text-micro text-lime uppercase tracking-widest bg-bg-base/90 px-2.5 py-1 border border-border-subtle w-fit backdrop-blur-sm">
-                  ● 100% LIVE & FUNCTIONAL
+                <div className="absolute bottom-3 right-3 font-mono text-[11px] text-lime uppercase tracking-widest bg-bg-base/90 px-2.5 py-1 border border-border-subtle backdrop-blur-sm">
+                  ● LIVE SCHOOL PORTAL
                 </div>
               </div>
 
@@ -142,7 +145,7 @@ export default function FeaturedWork() {
                     M.R.K. Public School
                   </h3>
                   <p className="text-[16px] text-text-muted mt-2.5 leading-relaxed">
-                    Clean, fast, authoritative digital portal for parents & students. Lightweight, accessible UI optimized for mobile parents on slower connections, complete with instant lead & admission inquiry routing.
+                    Clean, fast, authoritative digital portal for parents & students. Lightweight, accessible UI optimized for mobile connections, complete with direct admission inquiry flow.
                   </p>
 
                   <div className="grid grid-cols-2 gap-3 mt-4 font-mono text-micro border-t border-border-subtle pt-3.5">
@@ -157,17 +160,29 @@ export default function FeaturedWork() {
                   </div>
                 </div>
 
-                <div>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <Magnetic strength={0.25}>
+                    <motion.a
+                      href="https://mrkpublicschool.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-lime text-on-primary font-mono text-micro uppercase tracking-widest px-5 py-3 font-bold brutalist-hover shadow-[0_0_15px_rgba(200,255,0,0.2)]"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Visit Live Site →
+                    </motion.a>
+                  </Magnetic>
                   <Magnetic strength={0.25}>
                     <motion.a
                       href="https://cal.com/ravichawra/30min"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block border border-lime text-lime font-mono text-micro uppercase tracking-widest px-5 py-3 font-bold hover:bg-lime hover:text-on-primary transition-all duration-200"
+                      className="inline-block border border-border-subtle text-text-muted hover:text-text-primary font-mono text-micro uppercase tracking-widest px-5 py-3 font-bold transition-colors"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      Discuss Similar Institutional Build →
+                      Discuss Similar Build
                     </motion.a>
                   </Magnetic>
                 </div>
