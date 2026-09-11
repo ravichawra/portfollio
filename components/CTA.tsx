@@ -75,13 +75,13 @@ export default function CTA() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Magnetic strength={0.25}>
                   <motion.a
                     href="https://cal.com/ravichawra/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-lime text-on-primary font-mono text-label uppercase tracking-widest px-8 py-4 font-bold brutalist-hover inline-block shadow-[0_0_20px_rgba(200,255,0,0.2)] text-center"
+                    className="bg-lime text-on-primary font-mono text-xs uppercase tracking-widest px-6 py-3 font-bold rounded-full brutalist-hover inline-block shadow-[0_0_15px_rgba(200,255,0,0.2)] text-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -94,7 +94,7 @@ export default function CTA() {
                     href="https://wa.me/message/FGO7U6WF4F3FJ1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-lime text-lime font-mono text-label uppercase tracking-widest px-8 py-4 font-bold hover:bg-lime hover:text-on-primary transition-all duration-200 inline-block text-center"
+                    className="border border-lime text-lime font-mono text-xs uppercase tracking-widest px-6 py-3 font-bold rounded-full hover:bg-lime hover:text-on-primary transition-all duration-200 inline-block text-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

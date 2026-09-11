@@ -157,14 +157,14 @@ export default function Hero() {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap gap-4 pt-2"
+            className="flex flex-wrap gap-3 pt-2"
           >
             <Magnetic strength={0.25}>
               <motion.a
                 href="https://cal.com/ravichawra/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-lime text-on-primary font-mono text-label uppercase tracking-widest px-8 py-4 font-bold brutalist-hover inline-block shadow-[0_0_20px_rgba(200,255,0,0.2)] hover:shadow-[0_0_30px_rgba(200,255,0,0.4)] transition-shadow duration-300"
+                className="bg-lime text-on-primary font-mono text-xs uppercase tracking-widest px-6 py-3 font-bold rounded-full brutalist-hover inline-block shadow-[0_0_15px_rgba(200,255,0,0.2)] hover:shadow-[0_0_25px_rgba(200,255,0,0.4)] transition-shadow duration-300"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -174,7 +174,7 @@ export default function Hero() {
             <Magnetic strength={0.25}>
               <motion.a
                 href="#work"
-                className="border border-lime/60 text-text-primary font-mono text-label uppercase tracking-widest px-8 py-4 font-bold hover:bg-lime hover:text-on-primary transition-all duration-200 inline-block"
+                className="border border-lime/60 text-text-primary font-mono text-xs uppercase tracking-widest px-6 py-3 font-bold rounded-full hover:bg-lime hover:text-on-primary transition-all duration-200 inline-block"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
