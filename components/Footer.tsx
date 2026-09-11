@@ -6,7 +6,7 @@ import Link from "next/link";
 const FOOTER_LINKS = [
   { href: "https://www.linkedin.com/in/ravichawra/", label: "LinkedIn", external: true },
   { href: "https://www.instagram.com/ravichawraaa/", label: "Instagram", external: true },
-  { href: "https://wa.me/message/FGO7U6WF4F3FJ1", label: "WhatsApp", external: true },
+  { href: "https://github.com/ravichawra", label: "GitHub", external: true },
 ];
 
 export default function Footer() {
