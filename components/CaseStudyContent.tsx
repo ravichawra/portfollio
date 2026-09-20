@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const fadeUp: Variants = {
@@ -118,13 +119,15 @@ export default function CaseStudyContent() {
               className="relative overflow-hidden border"
               style={{ borderColor: "#434933", aspectRatio: "4/3" }}
             >
-              <img
+              <Image
                 src="/images/vyonna-sun-earrings-clean.png"
                 alt="Vyonnastore Gold Sun Earrings — product photography"
-                className="w-full h-full object-cover transition-all duration-700 opacity-90 hover:opacity-100"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-all duration-700 opacity-90 hover:opacity-100"
               />
               <div
-                className="absolute bottom-0 right-0 px-3 py-1 border-l border-t"
+                className="absolute bottom-0 right-0 px-3 py-1 border-l border-t z-10"
                 style={{
                   backgroundColor: "#1a1a1a",
                   borderColor: "#434933",

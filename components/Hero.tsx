@@ -143,7 +143,7 @@ export default function Hero() {
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap gap-3 pt-2"
-          >       >
+          >
             <Magnetic strength={0.25}>
               <motion.a
                 href="https://cal.com/ravichawra/30min"

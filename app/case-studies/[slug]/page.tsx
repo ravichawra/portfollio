@@ -12,7 +12,7 @@ export const revalidate = 60; // Revalidate static generation every minute
 
 export async function generateStaticParams() {
   const slugs = await getAllCaseStudySlugs();
-  return slugs.map((item: any) => ({
+  return slugs.map((item: { slug: string }) => ({
     slug: item.slug,
   }));
 }
@@ -102,7 +102,7 @@ export default async function CaseStudyDetailPage({
           {/* Key Metrics */}
           {study.metrics && study.metrics.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-bg-surface border border-border-subtle mb-10">
-              {study.metrics.map((m: any, idx: number) => (
+              {study.metrics.map((m: { value: string; label: string }, idx: number) => (
                 <div key={idx}>
                   <div className="font-sans font-extrabold text-2xl lg:text-3xl text-lime">
                     {m.value}
@@ -130,7 +130,7 @@ export default async function CaseStudyDetailPage({
           {/* Testimonial */}
           {study.testimonialQuote && (
             <div className="my-10 p-8 bg-bg-surface border-l-4 border-lime text-text-primary">
-              <p className="text-body-lg italic mb-3">"{study.testimonialQuote}"</p>
+              <p className="text-body-lg italic mb-3">&ldquo;{study.testimonialQuote}&rdquo;</p>
               {study.testimonialAuthor && (
                 <div className="font-mono text-micro text-lime uppercase tracking-widest">
                   — {study.testimonialAuthor}

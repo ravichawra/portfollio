@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-
 const TICKER_ITEMS = [
   { metric: "HIGH-CONVERTING SHOPIFY STORES", label: "" },
   { metric: "META ADS & CAPI TRACKING", label: "" },
