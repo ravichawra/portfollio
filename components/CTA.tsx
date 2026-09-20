@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 import SpotlightCard from "@/components/SpotlightCard";
 
@@ -20,17 +21,18 @@ export default function CTA() {
             {/* Left Column: Photo 2 - Cinematic Dark Study */}
             <div className="lg:col-span-5 flex flex-col">
               <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden border border-border-subtle rounded-2xl group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/ravi-workspace-cinematic.jpg"
                   alt="Ravi Chawra - Dark Study Desk Workspace"
-                  className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent z-10" />
 
                 {/* Corner bracket accents */}
-                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-lime pointer-events-none" />
-                <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none" />
+                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-lime pointer-events-none z-20" />
+                <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none z-20" />
               </div>
 
               <p className="font-mono text-micro text-lime italic mt-3.5 border-l-2 border-lime pl-3">

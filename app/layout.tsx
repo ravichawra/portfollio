@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Ravi Chawra",
   },
   description:
-    "Portfolio & systems showcase of Ravi Chawra (Ravi Prakash Chawra) — Solo Builder, Full-Stack Web Developer & Automation Engineer. Building high-converting websites, Meta ads, and n8n workflows.",
+    "Ravi Chawra (Ravi Prakash Chawra) — Solo Builder, Full-Stack Developer & Automation Engineer. High-converting Next.js & Shopify sites, Meta Ads & n8n workflows.",
   keywords: [
     "Ravi Chawra",
     "Ravi Prakash",
@@ -99,7 +99,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Enhanced Structured Data (JSON-LD) for Search Engines & LLM / GEO indexing
+  // Enhanced Structured Data (JSON-LD) for Search Engines, Answer Engines & LLM / GEO indexing
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -121,6 +121,10 @@ export default function RootLayout({
         "jobTitle": "Solo Builder, Full-Stack Web Developer & Automation Engineer",
         "description": "Solo Builder and Full-Stack Developer specializing in high-converting web applications, Shopify stores, Meta Ads server-side tracking, and n8n workflow automations.",
         "image": "https://ravichawra.com/images/ravi-portrait.jpg",
+        "nationality": {
+          "@type": "Country",
+          "name": "India"
+        },
         "knowsAbout": [
           "Full-Stack Web Development",
           "Shopify & E-Commerce Engineering",
@@ -130,6 +134,12 @@ export default function RootLayout({
           "TypeScript",
           "AI Agent Automations"
         ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Client Strategy & Inquiries",
+          "url": "https://cal.com/ravichawra/30min",
+          "availableLanguage": ["English", "Hindi"]
+        },
         "sameAs": [
           "https://github.com/ravichawra",
           "https://linkedin.com/in/ravichawra",
@@ -137,11 +147,22 @@ export default function RootLayout({
         ],
       },
       {
+        "@type": "ProfilePage",
+        "@id": "https://ravichawra.com/#profilepage",
+        "url": "https://ravichawra.com",
+        "name": "Ravi Chawra (Ravi Prakash Chawra) — Profile & Systems Portfolio",
+        "isPartOf": { "@id": "https://ravichawra.com/#website" },
+        "mainEntity": { "@id": "https://ravichawra.com/#person" }
+      },
+      {
         "@type": "ProfessionalService",
         "@id": "https://ravichawra.com/#service",
         "name": "Ravi Chawra — Solo Systems & Engineering",
         "url": "https://ravichawra.com",
         "provider": { "@id": "https://ravichawra.com/#person" },
+        "image": "https://ravichawra.com/images/ravi-workspace-cinematic.jpg",
+        "priceRange": "$$",
+        "currenciesAccepted": "USD, INR",
         "serviceType": [
           "Full-Stack Web Development",
           "Shopify Custom Store Build",
@@ -151,11 +172,49 @@ export default function RootLayout({
         "areaServed": "Worldwide",
       },
       {
+        "@type": "FAQPage",
+        "@id": "https://ravichawra.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I hire you for just one specific task (e.g. only web dev or only n8n automation)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. If you already have ads running and just need an n8n workflow to connect your leads to WhatsApp, or just need a Shopify revamp, we can do just that single sprint."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a typical build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A dedicated landing page or automation workflow typically takes 4 to 7 days. A full store build or multi-system setup takes 10 to 14 days. You receive continuous progress previews."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if something breaks after launch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I don't disappear after deployment. Every project includes post-launch support to ensure pixel tracking, checkout flows, and automated triggers run smoothly without interruptions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does pricing work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fixed, upfront pricing per project. After our initial 30-minute discovery call, you get a clear proposal detailing scope, timeline, and exact investment. No hidden retainers or surprise hourly invoices."
+            }
+          }
+        ]
+      },
+      {
         "@type": "WebSite",
         "@id": "https://ravichawra.com/#website",
         "url": "https://ravichawra.com",
         "name": "Ravi Chawra",
-        "alternateName": ["Ravi Prakash", "Ravi Prakash Chawra Portfolio"],
+        "alternateName": ["Ravi Prakash", "Ravi Prakash Chawra Portfolio", "ravichawra.com"],
         "description": "Official Portfolio & Systems Showcase of Ravi Chawra (Ravi Prakash Chawra)",
         "publisher": { "@id": "https://ravichawra.com/#person" },
         "inLanguage": "en-US",

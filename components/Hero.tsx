@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 import SpotlightCard from "@/components/SpotlightCard";
 
@@ -75,26 +75,6 @@ const TYPEWRITER_TEXT =
   "Most founders waste time and money playing telephone between an ad buyer, a web developer, and a freelancer for tools. When ads don't convert, they blame each other.\n\nI build the website, set up the tracking, run the ads, and automate the manual steps. One person. Direct communication. Total accountability.";
 
 export default function Hero() {
-  // Start with full text for instant FCP (First Contentful Paint)
-  const [displayed, setDisplayed] = useState(TYPEWRITER_TEXT);
-
-  useEffect(() => {
-    // Subtle typing effect on client hydration without blocking initial render
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i === 0) {
-        setDisplayed("");
-      } else if (i >= TYPEWRITER_TEXT.length) {
-        setDisplayed(TYPEWRITER_TEXT);
-        clearInterval(interval);
-      } else {
-        setDisplayed(TYPEWRITER_TEXT.slice(0, i));
-      }
-      i += 3;
-    }, 10);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -118,10 +98,12 @@ export default function Hero() {
             className="inline-flex items-center gap-3 border border-border-subtle bg-bg-base/80 backdrop-blur-sm px-3.5 py-1.5 w-fit"
           >
             <div className="relative w-6 h-6 rounded-full overflow-hidden border border-lime shrink-0">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/images/ravi-portrait.jpg"
                 alt="Ravi Chawra (Ravi Prakash Chawra) — Solo Builder & Automation Engineer"
+                width={24}
+                height={24}
+                priority
                 className="w-full h-full object-cover"
               />
             </div>
@@ -143,6 +125,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-[24px] sm:text-[30px] md:text-[36px] font-sans font-extrabold text-text-primary leading-[1.18] tracking-tight"
           >
+            <span className="sr-only">Ravi Chawra — Solo Builder, Full-Stack Developer & Automation Engineer: </span>
             Stop paying three different people to fix your{" "}
             <span className="text-lime underline decoration-lime/30 underline-offset-4">
               ads, website, and automations.
@@ -151,17 +134,16 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="text-[16px] text-text-muted max-w-xl whitespace-pre-line min-h-[120px] leading-relaxed"
-            aria-live="polite"
+            className="text-[16px] text-text-muted max-w-xl whitespace-pre-line leading-relaxed"
           >
-            {displayed}
+            {TYPEWRITER_TEXT}
             <span className="terminal-cursor" aria-hidden="true" />
           </motion.p>
 
           <motion.div
             variants={itemVariants}
             className="flex flex-wrap gap-3 pt-2"
-          >
+          >       >
             <Magnetic strength={0.25}>
               <motion.a
                 href="https://cal.com/ravichawra/30min"

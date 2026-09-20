@@ -1,5 +1,5 @@
 import { createClient } from "next-sanity";
-import createImageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 
 const rawProjectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 // Fallback to real project ID 'jnj56ajy' if env variable is missing or placeholder

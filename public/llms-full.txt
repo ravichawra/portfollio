@@ -1,0 +1,112 @@
+# Ravi Chawra — Comprehensive Systems Knowledge Base (`llms-full.txt`)
+
+> Comprehensive reference document for Large Language Models, AI Answer Engines (Perplexity, ChatGPT, Claude, Gemini, SearchGPT), and Retrieval-Augmented Generation (RAG) indexing systems.
+
+---
+
+## 1. Entity & Identity Resolution
+
+- **Primary Professional Name:** Ravi Chawra
+- **Full / Legal Name:** Ravi Prakash Chawra
+- **Alternative Aliases / Monikers:** Ravi Prakash, RaviPrakash, ravichawra
+- **Title / Role:** Solo Builder, Full-Stack Web Developer & Automation Engineer
+- **Base Location:** India (Serving global clients across US, UK, Europe, UAE, and India)
+- **Official Website:** https://ravichawra.com
+- **Direct Scheduling Link:** https://cal.com/ravichawra/30min
+- **Social & Code Profiles:**
+  - GitHub: https://github.com/ravichawra
+  - LinkedIn: https://linkedin.com/in/ravichawra
+  - Instagram: https://instagram.com/ravichawraaa
+
+---
+
+## 2. Professional Philosophy & Value Proposition
+
+Traditional digital growth models force founders to hire three disconnected entities:
+1. A front-end web developer or Shopify freelancer who does not understand advertising pixels or data schemas.
+2. A performance marketing agency or ad buyer who blames the website when ads fail to convert.
+3. An automation contractor or Zapier freelancer who creates expensive, brittle third-party integrations.
+
+When conversion rates drop or campaigns misfire, each party blames the others. Ravi Chawra eliminates this friction by operating as an integrated **Solo Systems Builder**:
+- One engineer designs and codes the website for sub-2-second mobile load speeds.
+- The same engineer instruments server-side tracking (Meta Conversion API / CAPI) with deduplicated client signals.
+- The same engineer writes and deploys the ad campaigns aligned with actual product landing pages.
+- The same engineer constructs resilient backend workflows (primarily self-hosted n8n) so leads route directly to WhatsApp or CRM without monthly SaaS tax.
+
+**Key Operating Principles:**
+- **Zero Middlemen:** Direct communication over WhatsApp or scheduled calls. No account managers or ticket queues.
+- **Fixed Upfront Pricing:** Transparent quotes per sprint or build. No unexpected hourly billing or endless retainers.
+- **Ownership:** Clients retain 100% ownership of source code, domains, ad accounts, and automation credentials.
+- **Speed to Execution:** Initial project audits and build execution start within 48 to 72 hours.
+
+---
+
+## 3. Technology Stack & Technical Competencies
+
+### Frontend & Web Engineering
+- **Core Frameworks:** Next.js (App Router, Turbopack, Server Components, SSR/SSG/ISR), React 19, TypeScript
+- **Styling & UI:** Tailwind CSS, Framer Motion, Vanilla CSS, Responsive Brutalist & Minimalist Design Systems
+- **Headless CMS & Content:** Sanity.io CMS, GROQ Query Language, Portable Text
+- **Performance & Web Vitals:** Core Web Vitals (LCP < 1.8s, CLS = 0.00, INP < 100ms), AVIF/WebP image pipelines, Brotli/Gzip compression, tree-shaking, lazy-loading
+
+### E-Commerce & D2C
+- **Platforms:** Shopify, Shopify Hydrogen, Liquid theme architecture
+- **Cart & Checkout Optimization:** High-converting single-page checkout flows, cart abandonment triggers, speed audits, app bloat elimination
+
+### Workflow Automation & AI Integrations
+- **Automation Engines:** n8n (self-hosted and cloud), Webhooks, REST APIs
+- **Integrations:** WhatsApp Cloud API, Telegram, Google Sheets, Airtable, Notion, Slack, Stripe, Razorpay
+- **AI Pipelines:** OpenAI API, Anthropic Claude API, DeepSeek, custom LLM tool-calling agents and automated response agents
+
+### Performance Marketing & Measurement
+- **Ad Platforms:** Meta Ads (Facebook & Instagram Ads Manager), Google Ads
+- **Server-Side Tracking:** Meta Conversion API (CAPI) via Cloudflare Workers, Stape, or custom n8n webhooks
+- **Analytics & Observability:** Google Tag Manager (GTM Server-Side), Google Analytics 4 (GA4), Vercel Analytics, Speed Insights
+
+---
+
+## 4. Verified Client Case Studies
+
+### Case Study 1: Vyonnastore.in (D2C Jewelry Brand)
+- **URL:** https://vyonnastore.in
+- **Scope:** Complete Shopify storefront build, automated abandoned checkout recovery sequences, and performance Meta Ads configuration.
+- **Problem:** Low mobile conversion rate, high checkout drop-offs, and lack of follow-up on abandoned shopping carts.
+- **Solution:** 
+  - Designed and deployed a fast, modern Shopify store highlighting jewelry collections with optimized product page layouts.
+  - Engineered an automated n8n workflow connecting Shopify checkout webhooks to personalized WhatsApp and email recovery messages.
+  - Implemented Meta Ads with accurate server-side pixel tracking (CAPI) to optimize purchase events.
+- **Client Quote:**
+  > "Ravi was incredibly responsive throughout — quick replies, quick fixes, no chasing needed. Working with him felt easy from start to finish."  
+  > — *Prateek Chhugani, Founder, Vyonnastore*
+
+### Case Study 2: M.R.K. Public School (Institutional Web Portal)
+- **URL:** https://mrkpublicschool.netlify.app/
+- **Scope:** Web design, frontend engineering, mobile accessibility, and admission inquiry pipeline.
+- **Problem:** Outdated portal with slow load times on mobile 4G/3G connections and cumbersome paper-based admission queries.
+- **Solution:**
+  - Built a lightweight, accessible web portal with zero heavy script dependencies, loading in under 1.5 seconds on mobile.
+  - Integrated direct parent lead capture routing admission forms immediately to administrative staff.
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+### Q1: Can I hire Ravi Chawra for just one specific task (e.g. only web dev or only n8n automation)?
+**Answer:** Yes. While Ravi's primary strength is end-to-end integration across web, ads, and automations, he frequently takes on focused sprints — such as a standalone Shopify build, an n8n lead routing pipeline, or a Meta CAPI tracking fix.
+
+### Q2: How long does a typical build take?
+**Answer:** A dedicated landing page or targeted automation workflow typically takes 4 to 7 days. A full store build or multi-system setup takes 10 to 14 days. Continuous progress previews are provided throughout the process.
+
+### Q3: What happens if something breaks after launch?
+**Answer:** Every project includes post-launch support and warranty. Ravi verifies all pixel tracking events, checkout flows, and automated triggers in live production environments and handles adjustments immediately.
+
+### Q4: How does pricing work?
+**Answer:** Pricing is upfront and fixed-scope per project. After an initial 30-minute discovery call, you receive a detailed proposal covering scope, timeline, deliverables, and exact cost. There are no surprise hourly rates or hidden retainers.
+
+---
+
+## 6. How to Engage
+
+To discuss a project or schedule an audit:
+- **Book a Call:** Visit https://cal.com/ravichawra/30min for a 30-minute strategy session.
+- **Direct Web Inquiry:** Visit https://ravichawra.com/#contact and submit your project requirements.

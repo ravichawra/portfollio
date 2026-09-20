@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
 import SpotlightCard from "@/components/SpotlightCard";
 
@@ -38,21 +39,20 @@ export default function FeaturedWork() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
               {/* Image Pane */}
               <div className="lg:col-span-6 min-h-[280px] lg:min-h-[380px] relative overflow-hidden group border-b lg:border-b-0 lg:border-r border-border-subtle">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{
-                    backgroundImage: "url('/images/vyonna-case-study-featured.png')",
-                  }}
-                  role="img"
-                  aria-label="Vyonnastore — Live Shopify jewelry store build"
+                <Image
+                  src="/images/vyonna-case-study-featured.png"
+                  alt="Vyonnastore — Live Shopify jewelry store build"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-bg-base/20 group-hover:bg-bg-base/0 transition-colors duration-500" />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-10">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
                     <path d="M0 24L0 0L24 0" stroke="#C8FF00" strokeWidth="1.5" />
                   </svg>
                 </div>
-                <div className="absolute bottom-3 right-3 font-mono text-[11px] text-lime uppercase tracking-widest bg-bg-base/90 px-2.5 py-1 border border-border-subtle backdrop-blur-sm">
+                <div className="absolute bottom-3 right-3 font-mono text-[11px] text-lime uppercase tracking-widest bg-bg-base/90 px-2.5 py-1 border border-border-subtle backdrop-blur-sm z-10">
                   ● LIVE SHOPIFY STORE
                 </div>
               </div>
@@ -116,21 +116,20 @@ export default function FeaturedWork() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
               {/* Image Pane */}
               <div className="lg:col-span-6 min-h-[280px] lg:min-h-[380px] relative overflow-hidden group border-b lg:border-b-0 lg:border-r border-border-subtle">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{
-                    backgroundImage: "url('/images/mrk-school-featured.png')",
-                  }}
-                  role="img"
-                  aria-label="M.R.K. Public School — Live institutional web portal build"
+                <Image
+                  src="/images/mrk-school-featured.png"
+                  alt="M.R.K. Public School — Live institutional web portal build"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-bg-base/20 group-hover:bg-bg-base/0 transition-colors duration-500" />
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-10">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
                     <path d="M0 24L0 0L24 0" stroke="#C8FF00" strokeWidth="1.5" />
                   </svg>
                 </div>
-                <div className="absolute bottom-3 right-3 font-mono text-[11px] text-lime uppercase tracking-widest bg-bg-base/90 px-2.5 py-1 border border-border-subtle backdrop-blur-sm">
+                <div className="absolute bottom-3 right-3 font-mono text-[11px] text-lime uppercase tracking-widest bg-bg-base/90 px-2.5 py-1 border border-border-subtle backdrop-blur-sm z-10">
                   ● LIVE SCHOOL PORTAL
                 </div>
               </div>

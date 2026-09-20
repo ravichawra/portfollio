@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import SpotlightCard from "@/components/SpotlightCard";
 
 interface TrustPoint {
@@ -136,21 +137,22 @@ export default function WhyMe() {
           <div className="lg:col-span-5 flex flex-col">
             <SpotlightCard className="p-6 rounded-3xl h-full flex flex-col justify-between border border-border-subtle hover:border-lime/40 transition-colors">
               <div className="relative aspect-[4/5] w-full overflow-hidden border border-border-subtle rounded-2xl mb-6 group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/images/ravi-portrait.jpg"
                   alt="Ravi Prakash Chawra (Ravi Chawra) — Solo Systems Architect"
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 via-transparent to-transparent z-10" />
                 
                 {/* Corner Bracket Accents */}
-                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-lime pointer-events-none" />
-                <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-lime pointer-events-none" />
-                <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-lime pointer-events-none" />
-                <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none" />
+                <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-lime pointer-events-none z-20" />
+                <div className="absolute top-3 right-3 w-3 h-3 border-t-2 border-r-2 border-lime pointer-events-none z-20" />
+                <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-lime pointer-events-none z-20" />
+                <div className="absolute bottom-3 right-3 w-3 h-3 border-b-2 border-r-2 border-lime pointer-events-none z-20" />
 
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-micro bg-bg-base/90 px-3 py-1.5 border border-border-subtle backdrop-blur-md rounded-xl">
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-micro bg-bg-base/90 px-3 py-1.5 border border-border-subtle backdrop-blur-md rounded-xl z-20">
                   <span className="text-lime font-bold">● DIRECT LINE ACTIVE</span>
                   <span className="text-text-faint">NO MIDDLEMEN</span>
                 </div>

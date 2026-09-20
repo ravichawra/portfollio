@@ -22,17 +22,27 @@ const FAQS = [
   },
 ];
 
-function FAQItem({ q, a }: { q: string; a: string }) {
+function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
   const [open, setOpen] = useState(false);
+  const questionId = `faq-q-${index}`;
+  const answerId = `faq-a-${index}`;
 
   return (
-    <div className="border-b border-border-subtle">
+    <div
+      className="border-b border-border-subtle"
+      itemScope
+      itemProp="mainEntity"
+      itemType="https://schema.org/Question"
+    >
       <button
+        id={questionId}
         onClick={() => setOpen((prev) => !prev)}
         className="flex justify-between items-center w-full py-5 text-left group gap-4"
         aria-expanded={open}
+        aria-controls={answerId}
       >
         <h3
+          itemProp="name"
           className={`text-[16px] sm:text-[18px] font-semibold transition-colors duration-200 ${
             open ? "text-lime" : "text-text-primary group-hover:text-lime"
           }`}
@@ -45,6 +55,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           transition={{ duration: 0.25 }}
           className="shrink-0 text-2xl font-mono text-lime font-bold"
           style={{ lineHeight: 1 }}
+          aria-hidden="true"
         >
           +
         </motion.span>
@@ -53,6 +64,12 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={answerId}
+            role="region"
+            aria-labelledby={questionId}
+            itemScope
+            itemProp="acceptedAnswer"
+            itemType="https://schema.org/Answer"
             key="answer"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -61,6 +78,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             className="overflow-hidden"
           >
             <p
+              itemProp="text"
               className="pb-6 text-[16px] sm:text-[16px] text-text-muted leading-relaxed max-w-3xl"
               style={{ fontFamily: "var(--font-sans)" }}
             >
@@ -101,8 +119,8 @@ export default function FAQ() {
 
           {/* Right accordion */}
           <div className="lg:col-span-8 flex flex-col border-t border-border-subtle lg:border-t-0">
-            {FAQS.map((faq) => (
-              <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+            {FAQS.map((faq, index) => (
+              <FAQItem key={faq.q} q={faq.q} a={faq.a} index={index} />
             ))}
           </div>
         </div>

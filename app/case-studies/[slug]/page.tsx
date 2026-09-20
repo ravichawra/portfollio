@@ -31,10 +31,22 @@ export async function generateMetadata({
     };
   }
 
+  const studyUrl = `https://ravichawra.com/case-studies/${slug}`;
+  const coverUrl = study.coverImage ? urlFor(study.coverImage).width(1200).height(630).url() : "/images/ravi-workspace-cinematic.jpg";
+
   return {
-    title: `${study.title} | Case Study | RAVI CHAWRA`,
+    title: `${study.title} | Case Study | Ravi Chawra`,
     description: study.excerpt || study.title,
     authors: [{ name: "Ravi Chawra (Ravi Prakash Chawra)", url: "https://ravichawra.com" }],
+    alternates: {
+      canonical: studyUrl,
+    },
+    openGraph: {
+      title: `${study.title} | Ravi Chawra`,
+      description: study.excerpt || study.title,
+      url: studyUrl,
+      images: [coverUrl],
+    },
   };
 }
 

@@ -5,9 +5,13 @@ import { getAllCaseStudies } from "@/lib/sanity";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Studies | RAVI CHAWRA — Independent Systems Builder",
+  title: "Case Studies | Ravi Chawra — Solo Systems Builder",
   description:
-    "Explore case studies of e-commerce store builds, AI automation workflows, and high-ROAS performance marketing systems.",
+    "Explore case studies of e-commerce store builds, AI automation workflows, and high-ROAS performance marketing systems by Ravi Chawra.",
+  alternates: {
+    canonical: "https://ravichawra.com/case-studies",
+  },
+  authors: [{ name: "Ravi Chawra (Ravi Prakash Chawra)", url: "https://ravichawra.com" }],
 };
 
 export const revalidate = 60; // Revalidate every minute

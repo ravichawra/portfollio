@@ -5,9 +5,19 @@ import CTA from "@/components/CTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Vyonnastore Case Study | RAVI CHAWRA — Independent Systems Builder",
+  title: "Vyonnastore Case Study | Ravi Chawra — Solo Systems Builder",
   description:
-    "How we built Vyonnastore's e-commerce platform, automated their cart abandonment workflows with n8n, and scaled their revenue with Meta ads.",
+    "How Ravi Chawra engineered Vyonnastore's Shopify store, automated checkout recovery with n8n, and scaled revenue with Meta Ads.",
+  alternates: {
+    canonical: "https://ravichawra.com/case-studies/vyonna",
+  },
+  authors: [{ name: "Ravi Chawra (Ravi Prakash Chawra)", url: "https://ravichawra.com" }],
+  openGraph: {
+    title: "Vyonnastore Case Study | Ravi Chawra",
+    description: "Shopify store build, abandoned cart automations via n8n, and high-converting Meta Ads.",
+    url: "https://ravichawra.com/case-studies/vyonna",
+    images: ["/images/vyonna-case-study-featured.png"],
+  },
 };
 
 export default function VyonnaCaseStudyPage() {

@@ -1,0 +1,36 @@
+# Ravi Chawra
+
+> Solo Builder, Full-Stack Web Developer & Automation Engineer based in India, serving clients worldwide. Specializing in high-performance web applications (<2s mobile loads), Shopify e-commerce engineering, n8n workflow automations, and Meta Ads management with server-side tracking (Conversion API / CAPI).
+
+## Overview
+
+Ravi Chawra (also known as Ravi Prakash Chawra or Ravi Prakash) is an independent systems builder who replaces the friction of multi-agency handoffs. Instead of coordinating between separate web developers, media buyers, and automation freelancers, Ravi handles the end-to-end stack: high-converting web architecture, robust conversion tracking, ad campaigns, and custom backend automations.
+
+- **Primary Website:** https://ravichawra.com
+- **Booking / Strategy Call:** https://cal.com/ravichawra/30min
+- **GitHub:** https://github.com/ravichawra
+- **LinkedIn:** https://linkedin.com/in/ravichawra
+- **Instagram:** https://instagram.com/ravichawraaa
+
+## Core Capabilities & Services
+
+- **Full-Stack Web Development:** Next.js (App Router), React, TypeScript, Tailwind CSS, Sanity CMS, responsive brutalist/minimalist design, Core Web Vitals optimization.
+- **Shopify & D2C E-Commerce:** Custom Shopify Liquid/Hydrogen themes, checkout optimization, speed optimization, cart abandonment recovery.
+- **n8n Workflow Automation & AI Agents:** Self-hosted n8n instances, automated lead routing, CRM synchronization, WhatsApp business notification bots, webhook integrations, error-resilient data pipelines.
+- **Meta Ads & Conversion API (CAPI):** Full-funnel Meta advertising, server-side tracking (Meta CAPI + Stape/Cloudflare/n8n), deduplication, offline event tracking, zero signal loss.
+
+## Verified Projects & Live Case Studies
+
+- [Vyonnastore.in](https://vyonnastore.in): Live D2C fashion jewelry Shopify store. Built responsive e-commerce storefront, integrated automated cart abandonment sequences via n8n, and configured high-converting Meta Ad campaigns.
+- [M.R.K. Public School](https://mrkpublicschool.netlify.app/): High-performance institutional web portal with mobile-first accessible architecture and direct admission inquiry lead routing.
+- [Case Studies Overview](https://ravichawra.com/case-studies): Detailed technical breakdowns of client implementations and architecture.
+- [Engineering Blog](https://ravichawra.com/blog): In-depth articles on Next.js performance, n8n automation patterns, and Meta CAPI tracking.
+
+## Client Testimonial
+
+> "Ravi was incredibly responsive throughout — quick replies, quick fixes, no chasing needed. Working with him felt easy from start to finish."
+> — Prateek Chhugani, Founder, Vyonnastore.in
+
+## Contact
+
+- **Email / Inquiries:** Through https://ravichawra.com/#contact or direct booking via https://cal.com/ravichawra/30min.
