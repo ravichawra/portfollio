@@ -11,11 +11,29 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   const [time, setTime] = useState("--:--:--");
+  const [zone, setZone] = useState("LOCAL");
 
   useEffect(() => {
     const update = () => {
       const now = new Date();
-      setTime(now.toISOString().split("T")[1].slice(0, 8));
+      setTime(
+        now.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        })
+      );
+      try {
+        const tzName = new Intl.DateTimeFormat(undefined, {
+          hour: "2-digit",
+          timeZoneName: "short",
+        })
+          .formatToParts(now)
+          .find((p) => p.type === "timeZoneName")?.value;
+        setZone(tzName ? `LOCAL (${tzName})` : "LOCAL");
+      } catch {
+        setZone("LOCAL");
+      }
     };
     update();
     const id = setInterval(update, 1000);
@@ -74,13 +92,10 @@ export default function Footer() {
           </div>
           <div className="uppercase tracking-widest">
             TIME:{" "}
-            <span className="text-lime tabular-nums" aria-live="polite" aria-label="Current UTC time">
+            <span className="text-lime tabular-nums" aria-live="polite" aria-label="Visitor local time">
               {time}
             </span>{" "}
-            UTC
-          </div>
-          <div className="uppercase tracking-widest opacity-50">
-
+            {zone}
           </div>
         </div>
       </div>
