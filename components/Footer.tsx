@@ -70,7 +70,7 @@ export default function Footer() {
         {/* Live clock + location */}
         <div className="font-mono text-micro text-text-faint space-y-1">
           <div className="uppercase tracking-widest">
-            LOC: [19.0760° N, 72.8777° E]
+            LOC: [26.2389° N, 73.0243° E]
           </div>
           <div className="uppercase tracking-widest">
             TIME:{" "}
